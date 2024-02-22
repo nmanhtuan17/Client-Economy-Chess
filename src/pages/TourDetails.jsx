@@ -145,7 +145,6 @@ const TourDetails = () => {
 									<h4>Reviews ({reviews?.length} reviews)</h4>
 
 									<Form onSubmit={submitHandler}>
-										
 										<div className="rating__group d-flex align-items-center gap-3 mb-4">
 											<span onClick={() => setTourRating(1)}>
 												1 <i className="ri-star-s-fill"></i>
