@@ -12,11 +12,12 @@ const initial_state = {
 
 export const AuthContext = createContext(initial_state);
 
+// quản lý các hành động liên quan đến đăng nhập
 const AuthReducer = (state, action) => {
 	switch (action.type) {
 		case "LOGIN_START":
 			return {
-				...state,
+				...state, // sao chép các giá trị cũ, chỉ thay đổi giá trị bị thay đổi
 				loading: true,
 				error: null,
 			};
@@ -49,6 +50,7 @@ const AuthReducer = (state, action) => {
 	}
 };
 
+// cung cấp dữ liệu cho toàn bộ ứng dụng thông qua context AuthContext.
 export const AuthContextProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(AuthReducer, initial_state);
 

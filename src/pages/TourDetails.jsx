@@ -71,7 +71,7 @@ const TourDetails = () => {
 			}
 
 			const reviewObject = {
-				username: user?.username,
+				name: user?.userName,
 				reviewText,
 				rating: tourRating,
 			};

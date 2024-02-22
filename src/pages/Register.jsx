@@ -43,11 +43,11 @@ const Register = () => {
 				if (data && data.message) {
 					alert(data.message);
 				} else {
-					alert("Unknown error occurred.");
+					alert("Lỗi");
 				}
 			}
 		} catch (err) {
-      alert("Email đã tồn tại")
+			alert("Email đã tồn tại");
 			console.error(err);
 		}
 	};
