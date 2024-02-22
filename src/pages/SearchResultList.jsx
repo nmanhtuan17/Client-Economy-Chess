@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import CommonSection from '../shared/CommonSection'
 import { Container, Row, Col } from 'reactstrap'
@@ -8,11 +7,12 @@ import Newsletter from '../shared/Newsletter'
 
 
 const SearchResultList = () => {
+  // cho phép truy cập thông tin ở urL
   const location = useLocation();
-  const [data] = useState(location.state);  
+  console.log(location);
+  const [data] = useState(location.state || []);  // Sử dụng [] nếu location.state không tồn tại
+  console.log(data)
   
-
-
   return (
     <>
       <CommonSection title={'Tour search Result'}/>

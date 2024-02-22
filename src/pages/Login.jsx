@@ -1,19 +1,53 @@
-import React from "react";
-
+import React, { useState, useContext } from "react";
 import { Container, Row, Col, Form, FormGroup, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { AuthContext } from "../context/AuthContext";
 import "../styles/login.css";
 
 import loginImg from "../assets/images/login.png";
 import userIcon from "../assets/images/user.png";
 
 const Login = () => {
+	const [credentials, setCredentials] = useState({
+		email: "",
+		password: "",
+	});
 
+	const navigate = useNavigate();
+	const { dispatch } = useContext(AuthContext);
 
+	const handleChange = (e) => {
+		const { id, value } = e.target;
+		setCredentials((prevCredentials) => ({
+			...prevCredentials,
+			[id]: value,
+		}));
+	};
 
-  const handleChange = (e) => {
+	const handleClick = async (e) => {
+		e.preventDefault();
 
-  }
+		try {
+			const res = await axios.post(
+				"https://server-travel-booking.onrender.com/users/login",
+				credentials
+			);
+
+			if (res.status === 200) {
+				dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+				navigate("/");
+			} else {
+				const data = await res.data;
+				alert(data.message);
+			}
+		} catch (error) {
+			dispatch({ type: "LOGIN_FAITULE", payload: error.data });
+			console.error(error);
+			alert("Tai khoan hoac mat khau khong dung");
+		}
+	};
+
 	return (
 		<section>
 			<Container>
@@ -29,7 +63,7 @@ const Login = () => {
 								</div>
 								<h2>Login</h2>
 
-								<Form>
+								<Form onSubmit={handleClick}>
 									<FormGroup>
 										<input
 											type="email"
@@ -40,7 +74,7 @@ const Login = () => {
 										/>
 									</FormGroup>
 
-                  <FormGroup>
+									<FormGroup>
 										<input
 											type="password"
 											placeholder="Password"
@@ -50,10 +84,17 @@ const Login = () => {
 										/>
 									</FormGroup>
 
-                  <Button className="btn secondary__btn auth__btn">Login</Button>
+									<Button
+										type="submit"
+										className="btn secondary__btn auth__btn"
+									>
+										Login
+									</Button>
 								</Form>
 
-                <p>Don't have an account? <Link to='/register'>Create</Link></p>
+								<p>
+									Don't have an account? <Link to="/register">Create</Link>
+								</p>
 							</div>
 						</div>
 					</Col>

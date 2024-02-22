@@ -51,6 +51,7 @@ const Tours = () => {
 							<Col lg={12}>
 								<div className="pagination d-flex items-center justify-center mt-4 gap-3">
 									{[...Array(pageCount).keys()].map((number) => (
+										// [0, 1, 2, 3, ..., pageCount]
 										// sử dụng number để làm chỉ số
 										<span
 											key={number}
