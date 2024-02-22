@@ -1,41 +1,42 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./booking.css";
 import { Form, FormGroup, ListGroup, ListGroupItem, Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 const Booking = ({ tour, avgRating }) => {
 	const { price, reviews } = tour;
-  const navigate = useNavigate();
-  const [credentials, setCredentials] = useState({
-    useId: '01',
-    userEmail: 'example@example.com',
-    fullName:'',
-    phone:"",
-    guestSize:1,
-    bookAt:''
-  })
+	const navigate = useNavigate();
+	const [credentials, setCredentials] = useState({
+		useId: "",
+		userEmail: "",
+		fullName: "",
+		phone: "",
+		guestSize: "",
+		bookAt: "",
+	});
 
 	const handleChange = (e) => {
-    // Lấy giá trị và id của trường nhập từ sự kiện thay đổi
-    const value = e.target.value;
-    const id = e.target.id;
-  
-    // Cập nhật state credentials dựa trên giá trị mới của trường nhập
-    setCredentials((prevCredentials) => ({
-      ...prevCredentials,
-      [id]: value,
-    }));
-  };
+		// Lấy giá trị và id của trường nhập từ sự kiện thay đổi
+		const value = e.target.value;
+		const id = e.target.id;
 
-  // send data to server
+		// Cập nhật state credentials dựa trên giá trị mới của trường nhập
+		setCredentials((prevCredentials) => ({
+			...prevCredentials,
+			[id]: value,
+		}));
+	};
 
-  const handleClick = (e) => {
-    e.preventDefault();
+	// send data to server
 
-    navigate('/thank-you');
-  }
+	const handleClick = (e) => {
+		e.preventDefault();
 
-  const serviceFee = 10;
-  let totalAmount = Number(price) * Number(credentials.guestSize) + Number(serviceFee);
+		navigate("/thank-you");
+	};
+
+	const serviceFee = 10;
+	let totalAmount =
+		Number(price) * Number(credentials.guestSize) + Number(serviceFee);
 
 	return (
 		<div className="booking">
@@ -105,21 +106,19 @@ const Booking = ({ tour, avgRating }) => {
 						</h5>
 						<span>${price}</span>
 					</ListGroupItem>
-          <ListGroupItem className="border-0 px-0">
-						<h5>
-							Service charge
-						</h5>
+					<ListGroupItem className="border-0 px-0">
+						<h5>Service charge</h5>
 						<span>${serviceFee}</span>
 					</ListGroupItem>
-          <ListGroupItem className="border-0 px-0 total">
-						<h5>
-							Total
-						</h5>
+					<ListGroupItem className="border-0 px-0 total">
+						<h5>Total</h5>
 						<span>${totalAmount}</span>
 					</ListGroupItem>
 				</ListGroup>
 
-        <Button className="btn primary__btn w-100 mt-4" onClick={handleClick}>Book Now</Button>
+				<Button className="btn primary__btn w-100 mt-4" onClick={handleClick}>
+					Book Now
+				</Button>
 			</div>
 		</div>
 	);
