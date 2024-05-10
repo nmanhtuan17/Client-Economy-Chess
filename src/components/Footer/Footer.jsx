@@ -4,7 +4,7 @@ import './footer.css';
 import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
 
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logochess.jpeg';
 
 
 
@@ -109,7 +109,7 @@ const Footer = () => {
 
             <ListGroup className='footer__quick-links'>
 
-              <ListGroupItem className='ps-0 border-0 d-flex items-center gap-3'>
+              <ListGroupItem className='ps-0 border-0 d-flex items-center gap-3 listgroup-color'>
                 <h6 className=' mb-0 d-flex items-center gap-2'>
                   <span>
                     <i className="ri-map-pin-line"></i>
@@ -119,7 +119,7 @@ const Footer = () => {
                 <p className='mb-0'>Hanoi,Vietnam</p>
               </ListGroupItem>
 
-              <ListGroupItem className='ps-0 border-0 d-flex items-center gap-3'>
+              <ListGroupItem className='ps-0 border-0 d-flex items-center gap-3 listgroup-color'>
                 <h6 className=' mb-0 d-flex items-center gap-2'>
                   <span>
                     <i className="ri-mail-line"></i>
@@ -130,7 +130,7 @@ const Footer = () => {
                 <p className='mb-0'>nqtrung0810@gmail.com</p>
               </ListGroupItem>
 
-              <ListGroupItem className='ps-0 border-0 d-flex items-center gap-3'>
+              <ListGroupItem className='ps-0 border-0 d-flex items-center gap-3 listgroup-color'>
                 <h6 className=' mb-0 d-flex items-center gap-2'>
                   <span>
                   <i className="ri-phone-line"></i>

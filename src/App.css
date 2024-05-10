@@ -6,8 +6,8 @@
 
 :root {
   --primary-color: #ff7e01;
-  --secondary-color: #faa935;
-  --heading-color: #0b2727;
+  --secondary-color: #81B64C;
+  --heading-color: #fff;
   --text-color: #6e7074;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
@@ -61,7 +61,7 @@ ul {
 }
 .secondary__btn {
   background: transparent !important;
-  color: #0b2727 !important;
+  color: #81B64C !important;
   border: none !important;
   font-weight: 500 !important;
 }

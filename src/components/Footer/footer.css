@@ -3,7 +3,7 @@
 .footer {
     padding: 70px;
     padding-bottom: 30px;
-    /* background: #ccc; */
+    background: #333;
 
 }
 
@@ -46,4 +46,8 @@
 .copyight {
     color: var(--text-color);
     font-size: 1.2rem;
+}
+
+.listgroup-color{
+    background-color: #333;
 }
