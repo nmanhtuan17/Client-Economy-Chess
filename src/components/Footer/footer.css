@@ -13,7 +13,7 @@
 } 
 
 .logo p {
-    color: var(--text-color);
+    color: #fff;
 }
 
 .social__links span a{
@@ -23,28 +23,28 @@
 }
 
 .footer__links-title {
-    color: var(--subtitle-color);
+    color: #fff;
     margin-bottom: 1rem;
 }
 
 .footer__quick-links li {
-    /* background-color: #ccc; */
+    background-color: #333;
 }
 .footer__quick-links a{
     text-decoration: none;
-    color: var(--text-color);
+    color: #fff;
     font-size: 1.2rem;
 
 }
 
 .footer__quick-links h6 span i{
-    color: var(--secondary-color);
+    color: #fff;
     font-size: 1.2rem;
 
 }
 
 .copyight {
-    color: var(--text-color);
+    color: #fff;
     font-size: 1.2rem;
 }
 
