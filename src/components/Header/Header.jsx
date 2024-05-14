@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
-import { Container, Row, Button } from "reactstrap";
+import { Container, Row, Button, Col } from "reactstrap";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logochess.jpeg";
 import "./header.css";
 
 import { AuthContext } from "../../context/AuthContext";
+import Subtitle from "../../shared/Subtitle";
+import SearchBar from "../../shared/SearchBar";
 
 const nav_links = [
 	{
@@ -66,8 +68,8 @@ const Header = () => {
 							<div className="nav__btns d-flex align-items-center gap-4">
 								{user ? (
 									<>
-										<h5 className="mb-0">{user.data.userName}</h5>
-										<Button className="btn btn-dark" onClick={logout}>
+										<h5 className="mb-0 highlight">{user.data.userName}</h5>
+										<Button className="btn" onClick={logout}>
 											Logout
 										</Button>
 									</>
@@ -82,12 +84,24 @@ const Header = () => {
 									</>
 								)}
 							</div>
-
+							
 							<span className="mobile__menu">
 								<i className="ri-menu-line"></i>
 							</span>
 						</div>
 					</div>
+				</Row>
+				<Row>
+					<Col lg="6">
+							<div className="hero__content">
+								<h1>
+									Shop for your ideal chess set
+									<br/>
+									<h5>and make great memories.</h5>
+								</h1>
+							</div>
+						</Col>
+						<SearchBar />
 				</Row>
 			</Container>
 		</header>

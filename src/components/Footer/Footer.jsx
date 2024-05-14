@@ -52,28 +52,27 @@ const Footer = () => {
               <div className="social__links d-flex items-center gap-4">
                 <span>
                   <Link to="#">
-                    <i className='ri-youtube-line'></i>
+                    <i className='icon ri-youtube-line'></i>
                   </Link>
                 </span>
 
                 <span>
                   <Link to="#">
-                    <i className='ri-github-fill'></i>
+                    <i className='icon ri-github-fill'></i>
                   </Link>
                 </span>
 
                 <span>
                   <Link to="#">
-                    <i className='ri-facebook-circle-line'></i>
+                    <i className='icon ri-facebook-circle-line'></i>
                   </Link>
                 </span>
 
                 <span>
                   <Link to="#">
-                    <i className='ri-instagram-line'></i>
+                    <i className='icon ri-instagram-line'></i>
                   </Link>
                 </span>
-
               </div>
             </div>
           </Col>
@@ -83,7 +82,7 @@ const Footer = () => {
 
             <ListGroup className='footer__quick-links'>
               {quick_links.map((link, index) => {
-                return <ListGroupItem key={index} className='ps-0 border-0'>
+                return <ListGroupItem key={index} className='ps-0 border-0 list-items'>
                   <Link to={link.path}>{link.display}</Link>
                 </ListGroupItem>
 
@@ -96,7 +95,7 @@ const Footer = () => {
 
             <ListGroup className='footer__quick-links'>
               {quick_links2.map((link, index) =>
-                <ListGroupItem key={index} className='ps-0 border-0'>
+                <ListGroupItem key={index} className='ps-0 border-0 list-items'>
                   <Link to={link.path}>{link.display}</Link>
                 </ListGroupItem>
 
@@ -109,20 +108,20 @@ const Footer = () => {
 
             <ListGroup className='footer__quick-links'>
 
-              <ListGroupItem className='ps-0 border-0 d-flex items-center gap-3 listgroup-color'>
+              <ListGroupItem className='ps-0 border-0 list-items d-flex items-center gap-3'>
                 <h6 className=' mb-0 d-flex items-center gap-2'>
                   <span>
-                    <i className="ri-map-pin-line"></i>
+                    <i className="icon ri-map-pin-line"></i>
                   </span>
                   Address:
                 </h6>
                 <p className='mb-0'>Hanoi,Vietnam</p>
               </ListGroupItem>
 
-              <ListGroupItem className='ps-0 border-0 d-flex items-center gap-3 listgroup-color'>
+              <ListGroupItem className='ps-0 border-0 list-items d-flex items-center gap-3'>
                 <h6 className=' mb-0 d-flex items-center gap-2'>
                   <span>
-                    <i className="ri-mail-line"></i>
+                    <i className="icon ri-mail-line"></i>
                   </span>
                   Email:
                 </h6>
@@ -130,10 +129,10 @@ const Footer = () => {
                 <p className='mb-0'>nqtrung0810@gmail.com</p>
               </ListGroupItem>
 
-              <ListGroupItem className='ps-0 border-0 d-flex items-center gap-3 listgroup-color'>
+              <ListGroupItem className='ps-0 border-0 list-items d-flex items-center gap-3'>
                 <h6 className=' mb-0 d-flex items-center gap-2'>
                   <span>
-                  <i className="ri-phone-line"></i>
+                  <i className="icon ri-phone-line"></i>
                   </span>
                   Phone:
                 </h6>
