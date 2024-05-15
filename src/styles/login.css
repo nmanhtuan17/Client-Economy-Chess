@@ -83,10 +83,16 @@ h1 {
 
 .btn-login-social:hover {
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 .show {
     z-index: 10;
-    margin-top: -550px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+}
+
+.colored-image {
+    
 }
