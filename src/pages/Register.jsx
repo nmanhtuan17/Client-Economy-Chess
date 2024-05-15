@@ -4,7 +4,9 @@ import { MailOutlined, KeyOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "../styles/login.css";
-import ButtonSocial from './ButtonSocial';
+import googleIcon from '../assets/images/google-icon.png';
+import facebookIcon from '../assets/images/facebook-icon.png';
+import logoChess from '../assets/images/logochess.jpeg';
 
 
 const Register = () => {
@@ -42,21 +44,7 @@ const Register = () => {
     console.log('Failed:', errorInfo);
   };
 
-  const buttonRegisterSocial = [
-    {
-      bg: '#fff',
-      color: '#000',
-      icon: 'https://imagepng.org/wp-content/uploads/2019/08/google-icon.png',
-      text: 'Tiếp tục với google'
-    },
-    {
-      bg: '#096bd6',
-      color: '#fff',
-      icon: 'http://www.pngall.com/wp-content/uploads/2016/07/Facebook-PNG-HD.png',
-      text: 'Tiếp tục với facebook'
-    }
-  ];
-
+  
   const handleChange = (e) => {
     const { id, value } = e.target;
     setCredentials((prevCredentials) => ({
@@ -67,8 +55,8 @@ const Register = () => {
 
   return (
     <div className="bg-auth flex-center">
-      <section className="bg-[#dfdfdf] absolutep rounded-md flex-col flex-center pt-6 overflow-hidden show">
-        <img className="w-[40px] h-[40px]" src="https://cdn0.iconfinder.com/data/icons/chess-26/128/7-1024.png" alt="" />
+      <section className="bg-[#dfdfdf] absolute rounded-md flex-col flex-center pt-6 overflow-hidden show">
+        <img className="w-[120px] h-[40px]" src={logoChess} alt="" />
         <h1 className="my-4">ĐĂNG KÝ</h1>
         <Form
           name="basic"
@@ -139,9 +127,40 @@ const Register = () => {
           </Form.Item>
         </Form>
         <Divider plain className="!px-6 !text-[20px] !font-[500px] !text-[#747474]">OR</Divider>
+        
+
         <div className="w-[100%] flex flex-col gap-2 login-social-container px-6">
-          {buttonRegisterSocial.map((btn, idx) => <ButtonSocial key={idx} bg={btn.bg} color={btn.color} icon={btn.icon} text={btn.text} />)}
+          
+					<div
+            style={{backgroundColor: "#fff"}}
+            className="px-6 py-4 my-1 text-center btn-login-social rounded-md relative"
+          >
+            <img
+              className="h-[30px] w-[30px] img-icon bg-[#fff]"
+              src={googleIcon}
+              alt=""
+            />
+            <p style={{color: "#000"}} className="font-[500] text-15 inline">
+              {"Đăng ký với Google"}
+            </p>
+          </div>
+
+					<div
+            style={{backgroundColor: "#096bd6"}}
+            className="px-6 py-4 my-1 text-center btn-login-social rounded-md relative"
+          >
+            <img
+              className="h-[30px] w-[30px] img-icon bg-[#fff]"
+              src={facebookIcon}
+              alt=""
+            />
+            <p style={{color: "#fff"}} className="font-[500] text-15 inline">
+              {"Đăng ký với Facebook"}
+            </p>
+          </div>
         </div>
+
+
         <div className="p-6 text-center mt-3 bg-[#d5d5d5] w-[100%]">
           <a className="font-[600]" href="/login">Nếu bạn đã có tài khoản? <span className="text-[#74a52d] cursor-pointer">Đăng nhập</span> </a>
         </div>

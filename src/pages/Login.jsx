@@ -8,6 +8,8 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import googleIcon from "../assets/images/google-icon.png";
 import facebookIcon from "../assets/images/facebook-icon.png";
+import logo from "../assets/images/logochess.jpeg";
+
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -52,8 +54,8 @@ const Login = () => {
     <div className="bg-auth flex-center">
       <section className="bg-[#dfdfdf] absolute rounded-md flex-col flex-center pt-6 overflow-hidden show">
         <img
-          className="w-[40px] h-[40px]"
-          src="https://cdn0.iconfinder.com/data/icons/chess-26/128/7-1024.png"
+          className="w-[140px] h-[40px] colored-image"
+          src={logo}
           alt=""
         />
         <h1 className="my-4">ĐĂNG NHẬP</h1>

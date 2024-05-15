@@ -91,18 +91,7 @@ const Header = () => {
 						</div>
 					</div>
 				</Row>
-				<Row>
-					<Col lg="6">
-							<div className="hero__content">
-								<h1>
-									Shop for your ideal chess set
-									<br/>
-									<h5>and make great memories.</h5>
-								</h1>
-							</div>
-						</Col>
-						<SearchBar />
-				</Row>
+			
 			</Container>
 		</header>
 	);

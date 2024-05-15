@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import TourCard from "../../shared/TourCard";
-import tourData from "../../assets/data/tours";
 import { Col } from "reactstrap";
 import useAxios from "../../hooks/useAxios";
 

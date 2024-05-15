@@ -35,9 +35,9 @@
 
 .sticky__header {
     width: 100%;
-    height: 450px;
+    /* height: 450px; */
     line-height: 80px;
-    background-image: url("https://i.pinimg.com/originals/80/9c/5d/809c5d28212444fb0692f2018deda3d5.jpg");
+    background-color: var(--heading-color);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
