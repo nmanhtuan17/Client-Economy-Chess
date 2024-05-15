@@ -4,14 +4,23 @@
     url('../assets/images/background.jpeg') no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 300px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    position: re;
+    content: '';
+    top: 0;
+    right: 0;
+    left: 0;
+    
 }
 
 .common__section h1 {
     color: #fff;
     font-size: 2.5rem;
+    position: absolute;
+    margin-top: 130px;
+    line-height: 0.8em;
+    
 }

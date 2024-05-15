@@ -34,7 +34,7 @@ const Tours = () => {
 			<section>
 				<Container>
 					<Row>
-						<SearchBar />
+						<SearchBar lg={12} className="search-bar__tour"/>
 					</Row>
 				</Container>
 			</section>

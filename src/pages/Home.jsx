@@ -1,259 +1,421 @@
 import React from "react";
-import "../styles/home.css";
 
-import { Container, Row, Col } from "reactstrap";
+import "../styles/home.css";
+import "../shared/common-section.css";
+import {useNavigate} from "react-router-dom";
+import {Container, Row, Col} from "reactstrap";
 import heroImg from "../assets/images/hero-img01.jpg";
 import heroImg02 from "../assets/images/hero-img02.jpg";
 import heroVideo from "../assets/images/hero-video.mp4";
 import worldImg from "../assets/images/world.png";
 import Subtitle from "../shared/Subtitle";
 import experienceImg from "../assets/images/experience.png";
-import gallery01 from "../assets/images/gallery-01.jpg";
-import gallery02 from "../assets/images/gallery-02.jpg";
-import gallery03 from "../assets/images/gallery-03.jpg";
-import gallery04 from "../assets/images/gallery-04.jpg";
-import gallery05 from "../assets/images/gallery-05.jpg";
-import gallery06 from "../assets/images/gallery-06.jpg";
-import gallery07 from "../assets/images/gallery-07.jpg";
+
+import foryou1 from "../assets/images/foryou1.jpeg";
+import foryou2 from "../assets/images/foryou2.jpeg";
+import foryou3 from "../assets/images/foryou3.jpeg";
+import foryou4 from "../assets/images/foryou4.jpeg";
+import foryou5 from "../assets/images/foryou5.jpeg";
+import foryou6 from "../assets/images/foryou6.jpeg";
 
 import ServiceList from "../Services/ServiceList";
 import SearchBar from "../shared/SearchBar";
 import FeaturedTourList from "../components/Featured-tours/FeaturedTourList";
 import Testimonials from "../components/Testimonial/Testimonials";
 import Newsletter from "../shared/Newsletter";
+// import CountUp from "../components/CountUp/CountUp";
+import CountUp from "react-countup"; // Import CountUp component
+import {useInView} from "react-intersection-observer";
+import {useState} from "react";
 
 const Home = () => {
-	return (
-		<>
-			{/* -----------------Hero section------------- */}
-			<section>
-				<Container>
-					<Row>
-						<Col lg="6">
-							<div className="hero__content">
-								<div className="hero__subtitle d-flex align-items-center">
-									<Subtitle subtitle={"Know Before You Go"} />
-									<img src={worldImg} alt="" />
-								</div>
-								<h1>
-									Traveling opens the door to creating{" "}
-									<span className="highlight">memories</span>
-								</h1>
-								<p className="">
-									Traveling is not only about discovering new places but also an
-									opportunity to encounter unique experiences and meet new
-									people. Every trip is an opportunity to build memorable
-									memories and unforgettable moments in life.
-								</p>
-							</div>
-						</Col>
-						<Col lg="6">
-							<Row>
-								<Col lg="4">
-									<div className="hero__img-box">
-										<img src={heroImg} alt="" />
-									</div>
-								</Col>
-								<Col lg="4">
-									<div className="hero__img-box mt-4">
-										<video src={heroVideo} alt="" controls />
-									</div>
-								</Col>
-								<Col lg="4">
-									<div className="hero__img-box mt-5">
-										<img src={heroImg02} alt="" />
-									</div>
-								</Col>
-							</Row>
-						</Col>
-						<SearchBar />
-					</Row>
-				</Container>
-			</section>
+  const navigate = useNavigate();
+  const [counted, setCounted] = useState(false);
+  const {ref, inView} = useInView();
 
-			{/* ------------- Services ------------------- */}
+  const onInViewChange = (inView) => {
+    if (inView && !counted) {
+      setCounted(true);
+    }
+  };
 
-			<section>
-				<Container>
-					<Row>
-						<Col lg="3">
-							<h5 className="services__subtitle">What we serve</h5>
-							<h2 className="services__title">We offer our best services</h2>
-						</Col>
-						<ServiceList />
-					</Row>
-				</Container>
-			</section>
+  return (
+    <>
+      {/* -----------------Hero section------------- */}
+      <section className="common__section">
+        <Container>
+          <Row >
+            <Col lg={9}>
+              
+              <h1>
+                <strong>Shop for your ideal chess set</strong>
+                <br />
+                <span className="small-text"> and make great memories.</span>
+              </h1>
+              <button
+                className="shop-button"
+                onClick={() => navigate("/tours")}
+              >
+                SHOP CHESS SETS
+              </button>
+							
+                
+            </Col>
+						
+						<SearchBar lg={3}/>
 
-			{/*------------------- Feature tour section start----------------- */}
-			<section>
-				<Container>
-					<Row>
-						<Col lg="12" className="mb-5">
-							<Subtitle subtitle={"Explore"} />
-							<h2 className="featured__tour-title">Our featured tours</h2>
-						</Col>
+						
+          </Row>
+        </Container>
+      </section>
 
-						<FeaturedTourList />
-					</Row>
-				</Container>
-			</section>
+      {/* ------------- Services ------------------- */}
 
-			{/* ++++++++++++++++++++++++++++++++= Experience =============================== */}
+      <section>
+        <Container>
+          <Row>
+            <Col lg="3">
+              <h5 className="services__subtitle">What we serve</h5>
+              <h2 className="services__title">We offer our best services</h2>
+            </Col>
+            <ServiceList />
+          </Row>
+        </Container>
+      </section>
 
-			<section>
-				<Container>
-					<Row>
-						<Col lg="6">
-							<div className="experience__content">
-								<Subtitle subtitle={"Experience"} />
+      {/*------------------- Feature tour section start----------------- */}
+      <section>
+        <Container>
+          <Row>
+            <Col lg="12" className="mb-5">
+              <Subtitle subtitle={"Explore"} />
+              <h2 className="featured__tour-title">Our featured tours</h2>
+            </Col>
 
-								<h2>
-									With our all experience <br /> we will serve you
-								</h2>
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Veniam, numquam!
-									<br />
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								</p>
-							</div>
+            <FeaturedTourList />
+          </Row>
+        </Container>
+      </section>
 
-							<div className="counter__wrapper d-flex items-center gap-5">
-								<div className="counter__box">
-									<span>12k+</span>
-									<h6>Successfull Trip</h6>
-								</div>
+      {/* ++++++++++++++++++++++++++++++++= Experience =============================== */}
 
-								<div className="counter__box">
-									<span>2k+</span>
-									<h6>Regular clients</h6>
-								</div>
+      <section>
+        <Container>
+          <Row>
+            <Col lg="6">
+              <div className="experience__content">
+                <Subtitle subtitle={"Experience"} />
 
-								<div className="counter__box">
-									<span>15</span>
-									<h6>Years experience</h6>
-								</div>
-							</div>
-						</Col>
+                <h2>
+                  With our all experience <br /> we will serve you
+                </h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Veniam, numquam!
+                  <br />
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </div>
 
-						<Col lg={6}>
-							<div className="experience__img">
-								<img src={experienceImg} alt="" />
-							</div>
-						</Col>
-					</Row>
-				</Container>
-			</section>
+              <div className="counter__wrapper d-flex items-center gap-5">
+                <div className="counter__box">
+                  <span>12k+</span>
+                  <h6>Successfull Trip</h6>
+                </div>
 
-			{/* =============================  Gallery section ================== */}
-			<section>
-				<Container>
-					<Row>
-						<Col lg={12}>
-							<div className="gallery__content">
-								<Subtitle subtitle={"Gallery"} />
-								<h2 className="gallery__title">
-									Visit our customer tour gallery
-								</h2>
-							</div>
-						</Col>
+                <div className="counter__box">
+                  <span>2k+</span>
+                  <h6>Regular clients</h6>
+                </div>
 
-						<Col lg={12}>
-							<Row>
-								<Col lg={3} md={3} sm={6} xs={12}>
-									<Row>
-										<Col lg={12}>
-											<div className="gallery__img mt-4">
-												<img src={gallery01} alt="" />
-											</div>
-										</Col>
-									</Row>
-									<Row>
-										<Col lg={12}>
-											<div className="gallery__img mt-4">
-												<img src={gallery03} alt="" />
-											</div>
-										</Col>
-									</Row>
-								</Col>
+                <div className="counter__box">
+                  <span>15</span>
+                  <h6>Years experience</h6>
+                </div>
+              </div>
+            </Col>
 
-								<Col lg={3} md={3} sm={6} xs={12}>
-									<Row>
-										<Col lg={12}>
-											<div className="gallery__img mt-4">
-												<img src={gallery07} alt="" />
-											</div>
-										</Col>
-									</Row>
-									<Row>
-										<Col lg={12}>
-											<div className="gallery__img mt-4">
-												<img src={gallery04} alt="" />
-											</div>
-										</Col>
-									</Row>
-								</Col>
+            <Col lg={6}>
+              <div className="experience__img">
+                <img src={experienceImg} alt="" />
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
-								<Col lg={3} md={3} sm={6} xs={12}>
-									<Row>
-										<Col lg={12}>
-											<div className="gallery__img mt-4">
-												<img src={gallery02} alt="" />
-											</div>
-										</Col>
-									</Row>
-									<Row>
-										<Col lg={12}>
-											<div className="gallery__img mt-4">
-												<img src={gallery05} alt="" />
-											</div>
-										</Col>
-									</Row>
-								</Col>
+      {/* =============================  Gallery section ================== */}
+      <section>
+        <Container>
+          <Row>
+            <Col lg={12}>
+              <div className="gallery__content">
+                <Subtitle subtitle={"For You"} />
+                <h2 className="gallery__title">
+                  Find The Perfect Chess Set <br />
+                  And Make Great Memories
+                </h2>
+              </div>
+            </Col>
 
-								<Col lg={3} md={3} sm={6} xs={12}>
-									<Row>
-										<Col lg={12}>
-											<div className="gallery__img mt-4">
-												<img src={gallery06} alt="" />
-											</div>
-										</Col>
-									</Row>
-									<Row>
-										<Col lg={12}>
-											<div className="gallery__img mt-4">
-												<img src={gallery07} alt="" />
-											</div>
-										</Col>
-									</Row>
-								</Col>
-							</Row>
-						</Col>
-					</Row>
-				</Container>
-			</section>
+            <Col lg={12}>
+              <Row>
+                <Col lg={4} md={4} sm={6} xs={12} className="mb-4">
+                  <div className="gallery__img-container mt-2">
+                    <img
+                      src={foryou1}
+                      alt="MAKE MEMORIES"
+                      className="gallery__img"
+                    />
+                    <div className="gallery__text">
+                      <p className="subheading">MAKE MEMORIES</p>
+                      <p className="h2">Home & Family</p>
+                      <button class="gallery__button">
+                        <svg
+                          role="presentation"
+                          focusable="false"
+                          width="40"
+                          height="40"
+                          class="icon icon-circle-button-right-clipped"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12ZM10.47 9.53 12.94 12l-2.47 2.47 1.06 1.06 3-3 .53-.53-.53-.53-3-3-1.06 1.06Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </Col>
 
-			{/* ==================== Testimonial ======================= */}
+                <Col lg={4} md={4} sm={6} xs={12} className="mb-4">
+                  <div className="gallery__img-container mt-2">
+                    <img
+                      src={foryou2}
+                      alt="FOR ENTHUSIASTS"
+                      className="gallery__img"
+                    />
+                    <div className="gallery__text">
+                      <p className="subheading">FOR ENTHUSIASTS</p>
+                      <p className="h2">Casual Players & Collectors</p>
+                      <button class="gallery__button">
+                        <svg
+                          role="presentation"
+                          focusable="false"
+                          width="40"
+                          height="40"
+                          class="icon icon-circle-button-right-clipped"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12ZM10.47 9.53 12.94 12l-2.47 2.47 1.06 1.06 3-3 .53-.53-.53-.53-3-3-1.06 1.06Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </Col>
 
-			<section>
-				<Container>
-					<Row>
-						<Col lg={12}>
-							<Subtitle subtitle={"Fans Love"} />
-							<h2 className="testimonial__title">What our fans say about us</h2>
-						</Col>
-						<Col lg={12}>
-							<Testimonials />
-						</Col>
-					</Row>
-				</Container>
-			</section>
+                <Col lg={4} md={4} sm={6} xs={12} className="mb-4">
+                  <div className="gallery__img-container mt-2">
+                    <img
+                      src={foryou3}
+                      alt="TEACH & MENTOR"
+                      className="gallery__img"
+                    />
+                    <div className="gallery__text">
+                      <p className="subheading">TEACH & MENTOR</p>
+                      <p className="h2">Schools & Clubs</p>
+                      <button class="gallery__button">
+                        <svg
+                          role="presentation"
+                          focusable="false"
+                          width="40"
+                          height="40"
+                          class="icon icon-circle-button-right-clipped"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12ZM10.47 9.53 12.94 12l-2.47 2.47 1.06 1.06 3-3 .53-.53-.53-.53-3-3-1.06 1.06Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </Col>
 
-			{/* ================================ Newletters ======================== */}
-			<Newsletter />
-		</>
-	);
+                <Col lg={4} md={4} sm={6} xs={12} className="mb-4">
+                  <div className="gallery__img-container mt-2">
+                    <img
+                      src={foryou4}
+                      alt="STANDOUT"
+                      className="gallery__img"
+                    />
+                    <div className="gallery__text">
+                      <p className="subheading">STANDOUT</p>
+                      <p className="h2">Epic Boards</p>
+                      <button class="gallery__button">
+                        <svg
+                          role="presentation"
+                          focusable="false"
+                          width="40"
+                          height="40"
+                          class="icon icon-circle-button-right-clipped"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12ZM10.47 9.53 12.94 12l-2.47 2.47 1.06 1.06 3-3 .53-.53-.53-.53-3-3-1.06 1.06Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </Col>
+
+                <Col lg={4} md={4} sm={6} xs={12} className="mb-4">
+                  <div className="gallery__img-container mt-2">
+                    <img
+                      src={foryou5}
+                      alt="PLAY & MOVE"
+                      className="gallery__img"
+                    />
+                    <div className="gallery__text">
+                      <p className="subheading">PLAY & MOVE</p>
+                      <p className="h2">Giant Chess</p>
+                      <button class="gallery__button">
+                        <svg
+                          role="presentation"
+                          focusable="false"
+                          width="40"
+                          height="40"
+                          class="icon icon-circle-button-right-clipped"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12ZM10.47 9.53 12.94 12l-2.47 2.47 1.06 1.06 3-3 .53-.53-.53-.53-3-3-1.06 1.06Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </Col>
+
+                <Col lg={4} md={4} sm={6} xs={12} className="mb-4">
+                  <div className="gallery__img-container mt-2">
+                    <img
+                      src={foryou6}
+                      alt="EPIC CHESS SET"
+                      className="gallery__img"
+                    />
+                    <div className="gallery__text">
+                      <p className="subheading">EPIC CHESS SET</p>
+                      <p className="h2">Daily Giveaway</p>
+                      <button class="gallery__button">
+                        <svg
+                          role="presentation"
+                          focusable="false"
+                          width="40"
+                          height="40"
+                          class="icon icon-circle-button-right-clipped"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12ZM10.47 9.53 12.94 12l-2.47 2.47 1.06 1.06 3-3 .53-.53-.53-.53-3-3-1.06 1.06Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* ==================== Phần mới ======================= */}
+      <section
+        className="section section-blends section-full"
+        ref={ref}
+        onChange={onInViewChange}
+        style={{backgroundColor: "white"}}
+      >
+        <Container>
+          <Row>
+            <Col lg={12}>
+              <div className="impact-text impact-text--center">
+                <div className="snap-center">
+                  <h2 className="impact-text__text heading break-all">
+                    <span
+                      className="text-gradient"
+                      style={{
+                        "--gradient":
+                          "linear-gradient(180deg, rgba(32, 138, 193, 1), rgba(26, 26, 26, 0) 100%)",
+                        display: "block",
+                        position: "relative",
+                        textAlign: "center",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {inView && (
+                        <CountUp end={21522} style={{fontSize: "12rem"}} />
+                      )}
+                    </span>
+                  </h2>
+                  <div className="impact-text__content">
+                    <div className="prose">
+                      <h3 className="h4 text-black text-30">
+                        <strong>PEOPLE RATE CHESS HOUSE ★★★★★</strong>
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* ==================== Testimonial ======================= */}
+
+      <section>
+        <Container className="containerTest bg-gray-300">
+          <Row>
+            <Col lg={12}>
+              <Subtitle className="sub" subtitle={"Fans Love"} />
+              <h2 className="testimonial__title ml-14 mt-5">
+                <strong>WHAT PEOPLE SAY</strong>
+              </h2>
+            </Col>
+            <Col lg={12}>
+              <Testimonials />
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* ================================ Newletters ======================== */}
+      <Newsletter />
+    </>
+  );
 };
 
 export default Home;

@@ -1,108 +1,78 @@
-import React from 'react'
-import Slider from 'react-slick';
+import React, { useRef } from 'react';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import './Testimonial.css';
 import ava01 from '../../assets/images/ava-1.jpg';
 import ava02 from '../../assets/images/ava-2.jpg';
 import ava03 from '../../assets/images/ava-3.jpg';
 
-// Lời chứng nhận
 const Testimonials = () => {
+  const settings={
+    dots:true,
+    Infinity:true,
+    speed:500,
+    slidesToShow:3,
+    slidesToScroll:2
+  };
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        autoplay:true,
-        speed: 1000,
-        swipeToSlide: true,
-        autoplaySpeed: 2000,
-        slidesToShow: 3,
-        slidesToScroll: 1,
+  return (
+    <div className="w-6/7 m-auto p-5 "> 
+      <div className="mt-1">
+        <Slider {...settings}>
+        {data.map((d) => (
+            <div className="bg-gray-600 bg-opacity-20 h-[450px] text-black rounded-xl">
+              <div className="h-40 rounded-t-xl flex justify-center items-center">
+                <img src={d.img} alt="" className="h-35 w-20 rounded-full"/>
+              </div>
 
-        reponsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-
-    }
-
-
-    return <Slider {...settings}>
-        <div className="testimonial py-4 px-3">
-            <div className="d-flex items-center gap-4">
-                <img src={ava01} className='w-1/4 h-1/4 rounded-lg' alt="" />
-                <div>
-                    <h6 className='mb-0 mt-3'>John Doe</h6>
-                    <p>Customer</p>
-                </div>
+              <div className="flex flex-col justify-center items-center gap-4 ">
+                <p className="text-xl font-semibold text-white">{d.name}</p>
+                <p className="text-center text-white">{d.review}</p>
+                <button className="bg-gray-500 text-white text-lg px-6 py-1 rounded-xl ">Read more</button>
+              </div>
             </div>
-            <p className='mt-3'>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-               
-            </p>
-        </div>
 
-        <div className="testimonial py-4 px-3">
-            <div className="d-flex items-center gap-4">
-                <img src={ava02} className='w-1/4 h-1/4 rounded-lg' alt="" />
-                <div>
-                    <h6 className='mb-0 mt-3'>Lia Frank</h6>
-                    <p>Customer</p>
-                </div>
-            </div>
-            <p className='mt-3'>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-               
-            </p>
-        </div>
+        ))}
+        </Slider>
+      </div>
 
+    </div>
+  );
+};
 
-        <div className="testimonial py-4 px-3">
-            <div className="d-flex items-center gap-4">
-                <img src={ava03} className='w-1/4 h-1/4 rounded-lg' alt="" />
-                <div>
-                    <h6 className='mb-0 mt-3'>Elon Musk</h6>
-                    <p>Customer</p>
-                </div>
-            </div>
-            <p className='mt-3'>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Numquam,perspiciatis? Cono reprehenderit quis, nihil accusamus asperiores corrupti iusto aut quo dolorem possimus.
-                , itaque placeat sapiente.
-            </p>
-        </div>
+const data = [
+  {
+    name:'John Morgan',
+    img: 'https://www.chesshouse.com/cdn/shop/files/bruce-300.jpg?v=1710975831&width=80',
+    review: 'I have made purchases from Chess House for a number of years and have always been satisfied with the products, and especially pleased with the friendly, professional, and helpful advice from the staff',
+  },
+  {
+    name:'John Morgan',
+    img: 'https://www.chesshouse.com/cdn/shop/files/amy_eefd114b-28db-4176-8d98-42ab2e4dc035.jpg?v=1710975555&width=112',
+    review: 'I have made purchases from Chess House for a number of years and have always been satisfied with the products, and especially pleased with the friendly, professional, and helpful advice from the staff',
+  },
+  {
+    name:'John Morgan',
+    img: 'https://www.chesshouse.com/cdn/shop/files/gary.jpg?v=1710976295&width=112',
+    review: 'I have made purchases from Chess House for a number of years and have always been satisfied with the products, and especially pleased with the friendly, professional, and helpful advice from the staff',
+  },
+  {
+    name:'John Morgan',
+    img: 'https://www.chesshouse.com/cdn/shop/files/steve.jpg?v=1710976587&width=112',
+    review: 'I have made purchases from Chess House for a number of years and have always been satisfied with the products, and especially pleased with the friendly, professional, and helpful advice from the staff',
+  },
+  {
+    name:'John Morgan',
+    img: 'https://www.chesshouse.com/cdn/shop/files/peter2.jpg?v=1710976763&width=112',
+    review: 'I have made purchases from Chess House for a number of years and have always been satisfied with the products, and especially pleased with the friendly, professional, and helpful advice from the staff',
+  },
+  {
+    name:'John Morgan',
+    img: 'https://www.chesshouse.com/cdn/shop/files/testimonials-person-avatar-1_75x_90755d3a-cf62-4508-a543-0179edb3cd89.webp?v=1703180098&width=56',
+    review: 'I have made purchases from Chess House for a number of years and have always been satisfied with the products, and especially pleased with the friendly, professional, and helpful advice from the staff',
+  },
 
-        <div className="testimonial py-4 px-3">
-            <div className="d-flex items-center gap-4">
-                <img src={ava03} className='w-1/4 h-1/4 rounded-lg' alt="" />
-                <div>
-                    <h6 className='mb-0 mt-3'>Elon Musk</h6>
-                    <p>Customer</p>
-                </div>
-            </div>
-            <p className='mt-3'>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                
-            </p>
-        </div>
-
-        
-    </Slider>
-}
+]
 
 export default Testimonials;

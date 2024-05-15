@@ -9,6 +9,7 @@
     box-shadow: 0px 5px 11px 6px rgba(17, 12, 46, 0.15);
     width: max-content;
     background-color: #fff;
+    margin-top: 28px;
 }
 
 .form__group span{
@@ -24,7 +25,8 @@
 }
 
 .form__group input{
-    font-size: 1.1rem; 
+    width: 100%;
+    font-size: 0.9rem; 
     line-height: normal;
 }
 

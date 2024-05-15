@@ -1,3 +1,23 @@
+.small-text{
+    font-size: 1.5rem;
+}
+.shop-button {
+    font-size: 1em;
+    background-color: var(--secondary-color);
+    color: #faf9f9; 
+    border: none; 
+    cursor: pointer; 
+    margin-top: 220px;
+    border-radius: 5px;
+    font-weight: bold;
+    height: 60px;
+    width: 250px;
+}
+.shop-button:hover{
+    background-color: #658f3b;
+    transform: scale(1.05);
+    
+}
 
 .hero__subtitle img {
     width: 2.3rem;
@@ -20,6 +40,15 @@
     color: var(--text-color);
     line-height: 2rem;
     padding-top: 3.5rem;
+    position: relative;
+}
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
 }
 
 .hero__img-box img, 
@@ -35,7 +64,12 @@
 .hero__img-box { 
     padding-top: 2rem;
 }
-
+.search--bar {
+    position: absolute;
+    right: 280px;
+    top: 120px;
+    
+}
 
 /* ------------- */
 
@@ -112,28 +146,140 @@
 }
 
 /* ============ GALLERY  ===========*/
-
-.gallery__content{
-
-}
-.gallery__title {
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    margin-bottom: 2.5rem;
+.gallery__img-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    
 }
 
 .gallery__img {
-    transition: 0.3s;
-}
-.gallery__img:hover {
-    transform:  scale(1.1);
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 1.2s;
+    filter: brightness(75%);
 }
 
-.gallery__img img{
-    width: 100%;
-    display: block;
-    border-radius: 10px;
+.gallery__img-container:hover .gallery__img {
+    transform: scale(1.1);
 }
+
+.gallery__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    transition: transform 0.3s ease;
+    
+}
+.gallery__img-container:hover .gallery__text {
+    transform: translate(-50%, -60%); /* Di chuyển text lên trên khi hover vào ảnh */
+}
+
+.gallery__text p {
+    margin: 5px 0;
+    font-size: 1.5rem;
+}
+
+.gallery__text .subheading {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.gallery__text .h2 {
+    margin-top: 30px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    width: 500px;
+}
+.gallery__img-container:hover .gallery__button {
+    opacity: 1; 
+    top: 100%;
+}
+
+.gallery__button {
+    position: absolute;
+    top:80%; /*ban đầu*/
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    opacity: 0; 
+    transition: opacity 0.3s ease, top 0.3s ease;
+}
+
+.gallery__button:hover {
+    opacity: 0.7;
+}
+
+/* =================== Section Blends =================== */
+.section-blends {
+    padding: 60px 0;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.section-full {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.impact-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.impact-text--center {
+    text-align: center;
+}
+
+.snap-center {
+    display: inline-block;
+}
+
+.impact-text__text {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.text-gradient {
+    background: -webkit-linear-gradient(180deg, rgba(32, 138, 193, 1), rgba(26, 26, 26, 0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.impact-text__content {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.prose {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.prose h4 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+/* Định dạng số đếm */
+.counter__box span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+
 
 
 /* ============ Testimonial ------------------ */
@@ -141,4 +287,12 @@
 .testimonial__title {
     font-size: 2.3rem;
     margin-top: 1rem;
+    color: #fff;
+    
 }
+.containerTest{
+    background-image: url('https://cdn.shopify.com/s/files/1/1297/3303/files/testimonial-bg.jpg?v=1709310133');
+    position: relative;
+    border-radius: 10px;
+}
+

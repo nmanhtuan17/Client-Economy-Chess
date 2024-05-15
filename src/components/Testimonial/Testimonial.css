@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  body{
+    
+  }
+}
+.slick-slide >div{
+  margin: 0 10px;
+}
+
+/* .testimonial-container {
+  position: relative;
+  overflow-x: auto; 
+  white-space: nowrap; 
+}
+
+.testimonial-scrollable {
+  display: inline-block;
+}
+
+.testimonial-scrollable-controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+
+.scroll-btn {
+  background-color: gray;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.scroll-btn:focus {
+  outline: none;
+}
+
+.material-icons-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-size: 24px;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+} */

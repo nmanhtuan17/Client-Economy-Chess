@@ -5,7 +5,8 @@ import { Col, Form, FormGroup } from "reactstrap";
 // import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 
-const SearchBar = () => {
+const SearchBar = ({lg}) => {
+  
   // const [location, setLocation] = useState("");
   // const [distance, setDistance] = useState(0);
   // const [maxGroupSize, setMaxGroupSize] = useState(0);
@@ -40,7 +41,7 @@ const SearchBar = () => {
   };
 
   return (
-    <Col lg="12">
+    <Col lg={lg}>
       <div className="search__bar">
         <Form className="d-flex items-center gap-4">
           <FormGroup className="d-flex gap-3 form__group form__group-fast mt-3">
