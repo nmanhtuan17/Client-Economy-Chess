@@ -56,7 +56,13 @@ const Register = () => {
   return (
     <div className="bg-auth flex-center">
       <section className="bg-[#dfdfdf] absolute rounded-md flex-col flex-center pt-6 overflow-hidden show">
-        <img className="w-[120px] h-[40px]" src={logoChess} alt="" />
+      <a href="/home">
+          <img
+            className="w-[140px] h-[40px] colored-image"
+            src={logoChess}
+            alt=""
+          />
+        </a>
         <h1 className="my-4">ĐĂNG KÝ</h1>
         <Form
           name="basic"
