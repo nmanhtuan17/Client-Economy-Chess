@@ -93,7 +93,7 @@ const TourDetails = () => {
 	return (
 		<>
 			<section>
-				<Container>
+				<Container className="mt-20">
 					<Row>
 						<Col lg={8}>
 							<div className="tour__content">

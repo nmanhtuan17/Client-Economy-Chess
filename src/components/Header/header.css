@@ -43,6 +43,6 @@
     top: 0; /* Đặt header ở trên cùng */
     z-index: 1000; /* Đảm bảo header được hiển thị trên mọi nội dung khác */
 }
-.sticky__header.scrolled{
+.sticky__header.scrolled {
     background-color: #333; /* Đổi màu header khi cuộn xuống dưới */
 }

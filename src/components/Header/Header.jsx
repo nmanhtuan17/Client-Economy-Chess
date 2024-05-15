@@ -1,12 +1,10 @@
-import React, {useContext, useState, useEffect} from "react";
-import {Container, Row, Button, Col} from "reactstrap";
-import {NavLink, Link, useNavigate} from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { Container, Row, Button } from "reactstrap";
+import { NavLink, Link, useNavigate, useLocation } from "react-router-dom";
 import logoChess from "../../assets/images/logochess.jpeg";
 import "./header.css";
 
-import {AuthContext} from "../../context/AuthContext";
-import Subtitle from "../../shared/Subtitle";
-import SearchBar from "../../shared/SearchBar";
+import { AuthContext } from "../../context/AuthContext";
 
 const nav_links = [
     {
@@ -25,8 +23,8 @@ const nav_links = [
 
 const Header = () => {
     const navigate = useNavigate();
-    const { user, dispatch } = React.useContext(AuthContext);
-    console.log(user);
+    const location = useLocation();
+    const { user, dispatch } = useContext(AuthContext);
 
     const logout = () => {
         dispatch({ type: "LOGOUT" });
@@ -61,9 +59,12 @@ const Header = () => {
         setIsHovered(false);
     };
 
+    // Kiểm tra xem đường dẫn có bắt đầu bằng "/tours/" không
+    const isTourDetailsPage = location.pathname.startsWith("/tours/");
+
     return (
         <header
-            className={`header sticky__header ${isScrolled || isHovered ? 'scrolled' : ''}`}
+            className={`header sticky__header ${isScrolled || isHovered || isTourDetailsPage ? 'scrolled' : ''}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
@@ -72,35 +73,28 @@ const Header = () => {
                     <div className="nav_wrapper d-flex align-items-center justify-content-between">
                         {/*----------- Logo------------ */}
                         <div className="logo">
-                          <a href="/home">
-                            <img src={logoChess} alt="" />
-
-                          </a>
+                            <a href="/home">
+                                <img src={logoChess} alt="logo" />
+                            </a>
                         </div>
 
                         {/*----------------- Menu------------------ */}
                         <div className="navigation">
                             <ul className="menu d-flex align-items-center gap-5">
-                                {nav_links.map((link, index) => {
-                                    return (
-                                        <li className="nav__item" key={index}>
-                                            <NavLink
-                                                to={link.path}
-                                                activeClassName="active__link"
-												className={(navClass) => {
-													return navClass.isActive ? "active__link" : "";
-												}}
-                                            >
-                                                {link.display}
-                                            </NavLink>
-                                        </li>
-                                    );
-                                })}
+                                {nav_links.map((link, index) => (
+                                    <li className="nav__item" key={index}>
+                                        <NavLink
+                                            to={link.path}
+                                            className={(navClass) => navClass.isActive ? "active__link" : ""}
+                                        >
+                                            {link.display}
+                                        </NavLink>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
 
                         {/* Button Login/ Register */}
-
                         <div className="nav__right d-flex align-items-center gap-4">
                             <div className="nav__btns d-flex align-items-center gap-4">
                                 {user ? (
@@ -132,4 +126,5 @@ const Header = () => {
         </header>
     );
 };
+
 export default Header;
