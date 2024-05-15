@@ -1,5 +1,3 @@
-
-
 .header {
     width: 100%;
     height: 80px;
@@ -10,19 +8,13 @@
     width: 30%;
 }
 
-.navigation {}
-
 .menu {
     margin-bottom: 0;
 }
 
-.nav__item {
-
-}
-
 .nav__item a {
     text-decoration: none;
-    color: var(--heading-color);
+    color: var(--text-white);
     font-size: 1.1rem;
     font-weight: 500;
 }
@@ -35,10 +27,6 @@
     color: var(--secondary-color);
  }
 
-.nav__right {}
-
-.nav__btns {}
-
 .mobile__menu {
     font-size: 1.3rem;
     color: var(--heading-color);
@@ -47,10 +35,13 @@
 
 .sticky__header {
     width: 100%;
-    height: 80px;
+    height: 450px;
     line-height: 80px;
-    background-color: #333;
-    position: sticky;
+    background-image: url("https://i.pinimg.com/originals/80/9c/5d/809c5d28212444fb0692f2018deda3d5.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
     top: 0;
     left: 0;
     box-shadow: 3px 3px 8px -3px #ddd;

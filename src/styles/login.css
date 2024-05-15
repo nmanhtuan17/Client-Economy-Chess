@@ -1,78 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.login__img {
-    width: 60%;
-    text-align: center;
+:root {
+    --main-color: #0a0a0a;
+    --secondary-color: #A2D05F
 }
 
-.login__img img {
-    width: 70%;
-    object-fit: contain;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.login__form {
-    padding: 50px;
-    background: var(--secondary-color);
-    position: relative;
+:where(.css-dev-only-do-not-override-tl3vnr).ant-input-affix-wrapper-lg {
+    font-size: 20px !important;
 }
 
-.login__container { 
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-    margin-top: 100px;
-
+:where(.css-dev-only-do-not-override-tl3vnr).ant-form-item {
+    margin-bottom: 10px;
 }
 
-.login__container .user {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    top: -9%;
-    left: 50%;
-    transform: translate(-50%, -9%);
+:where(.css-dev-only-do-not-override-tl3vnr).ant-input-affix-wrapper .ant-input-prefix {
+    margin-inline-end: 10px !important;
 }
 
-.login__form .user img {
-    width: 100%;
+.main-color {
+    color: var(--main-color)
 }
 
-.login__form h2 {
-    color: #fff;
-    text-align:  center;
-    margin-bottom: 2rem;
+
+body {
+    font-family: "Inter", sans-serif !important;
 }
 
-.login__form {
-    width: 40%;
+.ant-form-item-explain-error {
+    margin: 5px 0 !important;
 }
 
-.login__form input {
-    width: 100%;
-    padding: 0.5rem 1rem ;
-    border-radius: 5px;
-    border: none;
-    font-size: 1rem;
-    color: var(--heading-color);
+#basic_remember {
+    display: flex;
+    justify-content: space-between;
 }
 
-.login__form input:focus {
-    outline: none;
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.auth__btn {
-    background: var(--heading-color) !important;
-    width: 100%;
-    color: #fff !important;
+.bg-auth {
+    background-image: url('https://wallpaperaccess.com/full/1307130.jpg');
+    height: 100vh;
+    width: 100vw;
+    background-position: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.login__form p {
-    font-size: 0.9rem;
-    color: #fff;
-    margin-top: 1.5rem;
-    text-align: center;
+.bg-auth button.ant-btn {
+    width: 100% !important;
+    margin-top: 10px;
+    padding: 26px 32px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: var(--secondary-color);
 }
 
-.login__form p a {
-    color: var(--heading-color);
-    text-decoration: none;
-    margin-left: 5px;
+h1 {
+    font-size: 25px;
     font-weight: 500;
+    line-height: 25px;
+
+}
+
+.login-social-container img.img-icon {
+    position: absolute;
+    top: calc(50% - 15px);
+    border-radius: 50%;
+}
+
+.btn-login-social:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.show {
+    z-index: 10;
+    margin-top: -550px;
 }

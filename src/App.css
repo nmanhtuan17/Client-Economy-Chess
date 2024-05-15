@@ -7,7 +7,8 @@
 :root {
   --primary-color: #ff7e01;
   --secondary-color: #81B64C;
-  --heading-color: #fff;
+  --heading-color: black;
+  --text-white: #fff;
   --text-color: #6e7074;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
@@ -40,6 +41,7 @@ a {
   text-decoration: none;
   color: unset;
 }
+
 ul {
   list-style: none;
 }
@@ -56,11 +58,13 @@ ul {
   text-decoration: none;
   color: #fff;
 }
+
 .primary__btn a:hover {
   color: inherit;
 }
+
 .secondary__btn {
-  background: transparent !important;
+  background: #333 !important;
   color: #81B64C !important;
   border: none !important;
   font-weight: 500 !important;
@@ -69,7 +73,7 @@ ul {
 .secondary__btn a {
   text-decoration: none;
   font-size: 1.1rem;
-  color: var(--heading-color);
+  color: var(--text-white);
 }
 
 .secondary__btn a:hover {
