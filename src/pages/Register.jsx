@@ -11,7 +11,7 @@ import logoChess from '../assets/images/logochess.jpeg';
 
 const Register = () => {
   const [credentials, setCredentials] = useState({
-    userName: "",
+    name: "",
     email: "",
     password: "",
   });
@@ -20,12 +20,12 @@ const Register = () => {
   const onFinish = async (values) => {
     try {
       const res = await axios.post(
-        "https://server-travel-booking.onrender.com/users/register",
+        "http://127.0.0.1:5000/register",
         credentials
       );
 
       if (res.status === 200) {
-        navigate("/login");
+        navigate("/home");
       } else {
         const data = await res.data;
         if (data && data.message) {
@@ -90,7 +90,7 @@ const Register = () => {
 					>
 						<Input size="large" prefix={<KeyOutlined />}
 							type="text"
-							id="userName"
+							id="name"
 							placeholder="Name"
 							onChange={handleChange} />
 					</Form.Item>

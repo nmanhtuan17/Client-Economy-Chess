@@ -32,13 +32,13 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "https://server-travel-booking.onrender.com/users/login",
+        "http://127.0.0.1:5000/login",
         credentials
       );
 
       if (res.status === 200) {
         dispatch({type: "LOGIN_SUCCESS", payload: res.data});
-        navigate("/");
+        navigate("/home");
       } else {
         const data = await res.data;
         alert(data.message);

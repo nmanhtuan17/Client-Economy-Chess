@@ -41,8 +41,41 @@
     transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển đổi */
     position: fixed; /* Đảm bảo header được đặt ở trên cùng */
     top: 0; /* Đặt header ở trên cùng */
-    z-index: 1000; /* Đảm bảo header được hiển thị trên mọi nội dung khác */
+    z-index: 10; /* Đảm bảo header được hiển thị trên mọi nội dung khác */
 }
-.sticky__header.scrolled{
+.sticky__header.scrolled {
     background-color: #333; /* Đổi màu header khi cuộn xuống dưới */
+}
+
+.nav__btns {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Khoảng cách giữa các nút */
+    margin-right: 1rem; /* Thêm khoảng cách bên phải để tạo không gian cho icon giỏ hàng */
+}
+
+.cart__icon {
+    font-size: 1.5rem;
+    color: var(--text-white);
+}
+
+.cart__icon a {
+    color: var(--text-white);
+}
+
+.cart__icon a:hover {
+    color: var(--secondary-color);
+}
+
+
+
+.cart__badge {
+    position: relative;
+    top: -16px;
+    right: 6px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 4px;
+    font-size: 12px;
 }

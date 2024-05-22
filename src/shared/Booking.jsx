@@ -1,127 +1,170 @@
-import React, { useState } from "react";
-import "./booking.css";
-import { Form, FormGroup, ListGroup, ListGroupItem, Button } from "reactstrap";
-import { useNavigate } from "react-router-dom";
-const Booking = ({ tour, avgRating }) => {
-	const { price, reviews } = tour;
-	const navigate = useNavigate();
-	const [credentials, setCredentials] = useState({
-		useId: "",
-		userEmail: "",
-		fullName: "",
-		phone: "",
-		guestSize: "",
-		bookAt: "",
-	});
+import React, { useContext, useState } from 'react';
+import './booking.css';
+import { CartContext } from '../context/CartContext';
+import { message } from 'antd';
 
-	const handleChange = (e) => {
-		// Lấy giá trị và id của trường nhập từ sự kiện thay đổi
-		const value = e.target.value;
-		const id = e.target.id;
+const BookingPage = (props) => {
 
-		// Cập nhật state credentials dựa trên giá trị mới của trường nhập
-		setCredentials((prevCredentials) => ({
-			...prevCredentials,
-			[id]: value,
-		}));
-	};
+  const product = props.product;
+  const avgRating = props.avgRating;
+  const [quantity, setQuantity] = useState(1);
+  const [board, setBoard] = useState('Green');
+  const [bag, setBag] = useState('Green');
+  const [pieces, setPieces] = useState({ black: true, white: true });
+  const [message, setMessage] = useState('');
 
-	// send data to server
+  const { addToCart} = useContext(CartContext);
 
-	const handleClick = (e) => {
-		e.preventDefault();
+  const handleQuantityChange = (value) => {
+    setQuantity(value);
+  };
 
-		navigate("/thank-you");
-	};
+  const handleBoardChange = (value) => {
+    setBoard(value);
+  };
 
-	const serviceFee = 10;
-	let totalAmount =
-		Number(price) * Number(credentials.guestSize) + Number(serviceFee);
+  const handleBagChange = (value) => {
+    setBag(value);
+  };
 
-	return (
-		<div className="booking">
-			<div className="booking__top d-flex align-items-center justify-content-between">
-				<h3>
-					${price} <span>per/ person</span>
-				</h3>
+  const handlePiecesChange = (color, value) => {
+    setPieces({ ...pieces, [color]: value });
+  };
 
-				<span className="tour__rating d-flex align-items-center ">
-					<i class="ri-star-fill"></i>
-					{avgRating === 0 ? null : avgRating} ({reviews?.length})
-				</span>
-			</div>
+  const handleAddToCart = () => {
+    addToCart(product);
+    setMessage('Added to cart successfully!');
+    setTimeout(() => {
+      setMessage('');
+    }, 2000); // Ẩn thông báo sau 3 giây
+  };
 
-			{/* ======================== booking form ================== */}
-
-			<div className="booking__form">
-				<h5>Information</h5>
-				<Form className="booking__info-form" onSubmit={handleClick}>
-					<FormGroup>
-						<input
-							type="text"
-							placeholder="Full Name"
-							id="fullName"
-							required
-							onChange={handleChange}
-						/>
-					</FormGroup>
-
-					<FormGroup>
-						<input
-							type="text"
-							placeholder="Phone"
-							id="phone"
-							required
-							onChange={handleChange}
-						/>
-					</FormGroup>
-
-					<FormGroup className="d-flex align-items-center gap-3">
-						<input
-							type="date"
-							placeholder=""
-							id="bookAt"
-							required
-							onChange={handleChange}
-						/>
-
-						<input
-							type="number"
-							placeholder="Guest"
-							id="guestSize"
-							required
-							onChange={handleChange}
-						/>
-					</FormGroup>
-				</Form>
-			</div>
-
-			{/* Booking bottom */}
-			<div className="booking__bottom">
-				<ListGroup>
-					<ListGroupItem className="border-0 px-0">
-						<h5 className="d-flex align-items-center gap-1">
-							${price}
-							<i className="ri-close-line">1 person</i>
-						</h5>
-						<span>${price}</span>
-					</ListGroupItem>
-					<ListGroupItem className="border-0 px-0">
-						<h5>Service charge</h5>
-						<span>${serviceFee}</span>
-					</ListGroupItem>
-					<ListGroupItem className="border-0 px-0 total">
-						<h5>Total</h5>
-						<span>${totalAmount}</span>
-					</ListGroupItem>
-				</ListGroup>
-
-				<Button className="btn primary__btn w-100 mt-4" onClick={handleClick}>
-					Book Now
-				</Button>
-			</div>
+  return (
+    <div className="max-w-2xl mx-auto p-2">
+      <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
+      <div className="bg-white rounded-lg p-4">
+        <div className="flex items-center mb-4">
+          <span className="text-orange-500 mr-2">★★★★★</span>
+          <span className="text-gray-600">{avgRating} reviews</span>
+        </div>
+        <div className="text-3xl mb-4">{product.price}</div>
+        <div className="flex items-center mb-4" style={{color:'#81B64C'}}>
+		<svg className="w-5 h-5 mr-2" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9Z" fill="currentColor" />
+			<path d="M5 9.67188L7.44531 12L13 6.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+		<span>In stock {product.stock_quantity}</span>
 		</div>
-	);
+        <div className="mb-4">
+			<label htmlFor="quantity" className="block font-bold mb-2">
+				Quantity:
+			</label>
+			<div className="flex items-center bg-gray-200 rounded w-50">
+				<button
+				onClick={() => handleQuantityChange(quantity - 1)}
+				disabled={quantity === 1}
+				className="px-4 py-2 text-gray-600 hover:text-gray-800 focus:outline-none"
+				>
+				-
+				</button>
+				<input
+				id="quantity"
+				type="text"
+				value={quantity}
+				onChange={(e) => handleQuantityChange(parseInt(e.target.value) || 1)}
+				className="w-12 text-center bg-transparent focus:outline-none"
+				pattern="\d*"
+				inputMode="numeric"
+				/>
+				<button
+				onClick={() => handleQuantityChange(quantity + 1)}
+				className="px-4 py-2 text-gray-600 hover:text-gray-800 focus:outline-none"
+				>
+				+
+				</button>
+			</div>
+			</div>
+        <div className="bulk mb-4 ">
+          <label htmlFor="bulk-discounts" className="block font-bold mb-2">
+            Bulk Discounts:
+          </label>
+          <select
+            id="bulk-discounts"
+            className="w-full  hover:border-gray-500 px-4 py-2 pr-8 rounded  leading-tight focus:outline-none focus:shadow-outline"
+          >
+            <option value="2">2</option>
+            {/* Add more options if needed */}
+          </select>
+        </div>
+		<div>
+			<p className='custome'><strong>CUSTOMIZE YOURS</strong></p>
+		</div>
+        <div className="board mb-4">
+          <label htmlFor="board" className="block font-bold mb-2">
+            Select A Board:
+          </label>
+          <select
+            id="board"
+            value={board}
+            onChange={(e) => handleBoardChange(e.target.value)}
+            className="w-full  border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded  leading-tight focus:outline-none focus:shadow-outline"
+          >
+            <option value="Green">Green</option>
+            {/* Add more options if needed */}
+          </select>
+        </div>
+        <div className="bag mb-4">
+          <label htmlFor="bag" className="block font-bold mb-2">
+            Select A Bag:
+          </label>
+          <select
+            id="bag"
+            value={bag}
+            onChange={(e) => handleBagChange(e.target.value)}
+            className="w-full border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded  leading-tight focus:outline-none focus:shadow-outline"
+          >
+			
+            <option value="Green">Green</option>
+            {/* Add more options if needed */}
+          </select>
+        </div>
+        <div className="mb-4">
+			<label htmlFor="pieces" className="block font-bold mb-2">
+				Select Pieces:
+			</label>
+			<div className="flex items-center">
+				<div className="mr-4">
+				<select
+					id="pieces"
+					value={pieces.black ? 'Black' : ''}
+					onChange={(e) => handlePiecesChange('black', e.target.value === 'Black')}
+					className="w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+				>
+					<option value="">None</option>
+					<option value="Black">Black</option>
+				</select>
+				</div>
+				<div>
+				<select
+					id="pieces"
+					value={pieces.white ? 'White' : ''}
+					onChange={(e) => handlePiecesChange('white', e.target.value === 'White')}
+					className="w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+				>
+					<option value="">None</option>
+					<option value="White">White</option>
+				</select>
+				</div>
+			</div>
+			</div>
+        <button className="AddToCart text-white font-bold py-2 px-4 rounded flex items-center" onClick={handleAddToCart}>
+          <span className="mr-2">ADD TO CART</span>
+          <span>| {product.price}</span>
+        </button>
+        {message && <div className="text-green-500 mt-4"> {message} </div>}
+      </div>
+    </div>
+  );
 };
 
-export default Booking;
+export default BookingPage;

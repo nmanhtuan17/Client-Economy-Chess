@@ -12,12 +12,14 @@ const Tours = () => {
 	const [page, setPage] = useState(0);
 
 	const {
-		data: tours,
+		data: products,
 		loading,
 		error,
-	} = useAxios(`https://server-travel-booking.onrender.com/tours`);
+	} = useAxios(`http://127.0.0.1:5000/products`);
 
-	const tourCount = tours.length;
+	console.log(products);
+
+	const tourCount = products.length;
 
 	// pages = totalproduct / perPage
 
@@ -26,11 +28,11 @@ const Tours = () => {
 
 		setPageCount(pages);
 		window.scroll(0, 0);
-	}, [page, tours, tourCount]);
+	}, [page, products, tourCount]);
 
 	return (
 		<>
-			<CommonSection title={"All Tours"} />
+			<CommonSection title={"All Chess"} />
 			<section>
 				<Container>
 					<Row>
@@ -43,9 +45,9 @@ const Tours = () => {
 				<Container>
 					{!loading && !error && (
 						<Row>
-							{tours?.map((tour) => (
-								<Col lg={3} className="mb-4" key={tour._id}>
-									<TourCard tour={tour} />
+							{products?.map((product) => (
+								<Col lg={3} className="mb-4" key={product.id}>
+									<TourCard product={product} />
 								</Col>
 							))}
 							<Col lg={12}>

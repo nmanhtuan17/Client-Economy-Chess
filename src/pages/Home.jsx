@@ -18,13 +18,13 @@ import foryou4 from "../assets/images/foryou4.jpeg";
 import foryou5 from "../assets/images/foryou5.jpeg";
 import foryou6 from "../assets/images/foryou6.jpeg";
 
-import ServiceList from "../Services/ServiceList";
+// import ServiceList from "../Services/ServiceList";
 import SearchBar from "../shared/SearchBar";
 import FeaturedTourList from "../components/Featured-tours/FeaturedTourList";
 import Testimonials from "../components/Testimonial/Testimonials";
 import Newsletter from "../shared/Newsletter";
 // import CountUp from "../components/CountUp/CountUp";
-import CountUp from "react-countup"; // Import CountUp component
+import CountUp from "react-countup"; 
 import {useInView} from "react-intersection-observer";
 import {useState} from "react";
 
@@ -54,7 +54,7 @@ const Home = () => {
               </h1>
               <button
                 className="shop-button"
-                onClick={() => navigate("/tours")}
+                onClick={() => navigate("/products")}
               >
                 SHOP CHESS SETS
               </button>
@@ -71,7 +71,7 @@ const Home = () => {
 
       {/* ------------- Services ------------------- */}
 
-      <section>
+      {/* <section>
         <Container>
           <Row>
             <Col lg="3">
@@ -81,7 +81,7 @@ const Home = () => {
             <ServiceList />
           </Row>
         </Container>
-      </section>
+      </section> */}
 
       {/*------------------- Feature tour section start----------------- */}
       <section>
@@ -89,7 +89,8 @@ const Home = () => {
           <Row>
             <Col lg="12" className="mb-5">
               <Subtitle subtitle={"Explore"} />
-              <h2 className="featured__tour-title">Our featured tours</h2>
+              <br />
+              <h2 className="featured__tour-title"><strong>TOP CHESS SETS</strong></h2>
             </Col>
 
             <FeaturedTourList />
@@ -99,7 +100,7 @@ const Home = () => {
 
       {/* ++++++++++++++++++++++++++++++++= Experience =============================== */}
 
-      <section>
+      {/* <section>
         <Container>
           <Row>
             <Col lg="6">
@@ -142,7 +143,7 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </section>
+      </section> */}
 
       {/* =============================  Gallery section ================== */}
       <section>
@@ -151,10 +152,7 @@ const Home = () => {
             <Col lg={12}>
               <div className="gallery__content">
                 <Subtitle subtitle={"For You"} />
-                <h2 className="gallery__title">
-                  Find The Perfect Chess Set <br />
-                  And Make Great Memories
-                </h2>
+                <br />
               </div>
             </Col>
 
