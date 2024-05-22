@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './booking.css';
+import { CartContext } from '../context/CartContext';
+import { message } from 'antd';
 
-const BookingPage = () => {
+const BookingPage = (props) => {
+
+  const product = props.product;
+  const avgRating = props.avgRating;
   const [quantity, setQuantity] = useState(1);
   const [board, setBoard] = useState('Green');
   const [bag, setBag] = useState('Green');
   const [pieces, setPieces] = useState({ black: true, white: true });
+  const [message, setMessage] = useState('');
+
+  const { addToCart} = useContext(CartContext);
 
   const handleQuantityChange = (value) => {
     setQuantity(value);
@@ -23,22 +31,29 @@ const BookingPage = () => {
     setPieces({ ...pieces, [color]: value });
   };
 
+  const handleAddToCart = () => {
+    addToCart(product);
+    setMessage('Added to cart successfully!');
+    setTimeout(() => {
+      setMessage('');
+    }, 2000); // Ẩn thông báo sau 3 giây
+  };
+
   return (
     <div className="max-w-2xl mx-auto p-2">
-		<p className='link'>Home › Stealth Combo - Flex Pad Silicone Chess Set with Deluxe Bag</p>
-      <h1 className="text-3xl font-bold mb-4">Stealth Combo - Flex Pad Silicone Chess Set with Deluxe Bag</h1>
+      <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
       <div className="bg-white rounded-lg p-4">
         <div className="flex items-center mb-4">
           <span className="text-orange-500 mr-2">★★★★★</span>
-          <span className="text-gray-600">178 reviews</span>
+          <span className="text-gray-600">{avgRating} reviews</span>
         </div>
-        <div className="text-3xl mb-4">1.525.000₫ VND</div>
+        <div className="text-3xl mb-4">{product.price}</div>
         <div className="flex items-center mb-4" style={{color:'#81B64C'}}>
 		<svg className="w-5 h-5 mr-2" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9Z" fill="currentColor" />
 			<path d="M5 9.67188L7.44531 12L13 6.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
-		<span>In stock</span>
+		<span>In stock {product.stock_quantity}</span>
 		</div>
         <div className="mb-4">
 			<label htmlFor="quantity" className="block font-bold mb-2">
@@ -142,10 +157,11 @@ const BookingPage = () => {
 				</div>
 			</div>
 			</div>
-        <button className="AddToCart text-white font-bold py-2 px-4 rounded flex items-center">
+        <button className="AddToCart text-white font-bold py-2 px-4 rounded flex items-center" onClick={handleAddToCart}>
           <span className="mr-2">ADD TO CART</span>
-          <span>| 1.525.000₫ VND</span>
+          <span>| {product.price}</span>
         </button>
+        {message && <div className="text-green-500 mt-4"> {message} </div>}
       </div>
     </div>
   );

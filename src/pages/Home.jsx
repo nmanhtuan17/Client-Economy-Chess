@@ -54,7 +54,7 @@ const Home = () => {
               </h1>
               <button
                 className="shop-button"
-                onClick={() => navigate("/tours")}
+                onClick={() => navigate("/products")}
               >
                 SHOP CHESS SETS
               </button>

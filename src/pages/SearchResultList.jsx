@@ -15,16 +15,16 @@ const SearchResultList = () => {
   
   return (
     <>
-      <CommonSection title={'Tour search Result'}/>
+      <CommonSection title={'Product search Result'}/>
       <section>
         <Container>
           <Row>
             {
-              data.length === 0 ? (<h4 className='text-center'>No Tour Found</h4>) :
+              data.length === 0 ? (<h4 className='text-center'>Not Found</h4>) :
               ( 
-                data?.map( tour => (
-                  <Col lg={3} className='mb-4' key={tour.id}>
-                    <TourCard tour={tour}/>
+                data?.map( product => (
+                  <Col lg={3} className='mb-4' key={product.id}>
+                    <TourCard product={product}/>
                   </Col>
                 ))
               )

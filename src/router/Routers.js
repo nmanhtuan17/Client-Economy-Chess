@@ -20,12 +20,12 @@ const Routers = () => {
       <Route path="/" element={<Navigate to='/home' />} />
       <Route path="/home" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/tours" element={<Tours />} />
-      <Route path="/tours/:id" element={<TourDetails />} />
+      <Route path="/products" element={<Tours />} />
+      <Route path="/products/:id" element={<TourDetails />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path='/thank-you' element={<ThankYou />}/>
-      <Route path="/tours/search" element={<SearchResultList />} />
+      <Route path="/products/search" element={<SearchResultList />} />
       <Route path="/cart" element={<Cart />} />
     </Routes>
   )

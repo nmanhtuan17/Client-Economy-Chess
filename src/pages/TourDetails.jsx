@@ -20,28 +20,26 @@ const TourDetails = () => {
 	const { user } = useContext(AuthContext);
 
 	const {
-		data: tour,
+		data: product,
 		loading,
 		error,
-	} = useAxios(`https://server-travel-booking.onrender.com/tours/${id}`);
+	} = useAxios(`http://127.0.0.1:5000/product/${id}`);
 
-	console.log(tour);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-	}, [tour]);
+	}, [product]);
 
 	const {
 		photo,
-		title,
-		desc,
+		description,
 		price,
-		address,
 		reviews,
-		city,
-		distance,
-		maxGroupSize,
-	} = tour;
+		name,
+		stock_quantity,
+		featured
+    
+	} = product;
 
 	const totalRating = reviews?.reduce((acc, item) => acc + item.rating, 0);
 	let avgRating;
@@ -156,7 +154,7 @@ const TourDetails = () => {
 									</div> */}
 									<div className="tour__desc">
 										<h5>Description</h5>
-										<p>{desc}</p>
+										<p>{description}</p>
 									</div>
 								</div>
 
@@ -233,7 +231,7 @@ const TourDetails = () => {
 						</Col>
 
 						<Col lg={4}>
-							<Booking tour={tour} avgRating={avgRating} />
+							<Booking product={product} avgRating={avgRating} />
 						</Col>
 					</Row>
 				</Container>
