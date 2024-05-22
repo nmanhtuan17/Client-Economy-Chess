@@ -146,7 +146,7 @@ const Footer = () => {
 
           <Col lg='12' className='text-center pt-5'>
             <p className="copyight">
-            &copy; {year} Travel Booking, design and develop by Trunknq, Inc.
+            &copy; {year} Chess House, design and develop by Trunknq & Huybq, Inc.
               All rights reserved
             </p>
           </Col>

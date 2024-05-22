@@ -3,8 +3,8 @@ import { Container, Row, Button } from "reactstrap";
 import { NavLink, Link, useNavigate, useLocation } from "react-router-dom";
 import logoChess from "../../assets/images/logochess.jpeg";
 import "./header.css";
-
 import { AuthContext } from "../../context/AuthContext";
+
 
 const nav_links = [
     {
@@ -19,9 +19,10 @@ const nav_links = [
         path: "/tours",
         display: "Shop",
     },
+  
 ];
 
-const Header = () => {
+const Header = ({onCartIconClick}) => {
     const navigate = useNavigate();
     const location = useLocation();
     const { user, dispatch } = useContext(AuthContext);
@@ -61,10 +62,11 @@ const Header = () => {
 
     // Kiểm tra xem đường dẫn có bắt đầu bằng "/tours/" không
     const isTourDetailsPage = location.pathname.startsWith("/tours/");
+    const isCartPage = location.pathname.startsWith("/cart");
 
     return (
         <header
-            className={`header sticky__header ${isScrolled || isHovered || isTourDetailsPage ? 'scrolled' : ''}`}
+            className={`header sticky__header ${isScrolled || isHovered || isTourDetailsPage || isCartPage ? 'scrolled' : ''}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
@@ -115,6 +117,11 @@ const Header = () => {
                                     </>
                                 )}
                             </div>
+
+                            {/* Icon Giỏ Hàng */}
+                            <button className="cart__icon relative"  onClick={onCartIconClick} >
+                                    <i className="ri-shopping-cart-line"></i>
+                            </button>
 
                             <span className="mobile__menu">
                                 <i className="ri-menu-line"></i>

@@ -11,6 +11,7 @@ import Login from './../pages/Login';
 import Register from './../pages/Register';
 import ThankYou from '../pages/ThankYou';
 import About from '../pages/About';
+import Cart from '../pages/Cart';
 
 
 const Routers = () => {
@@ -25,6 +26,7 @@ const Routers = () => {
       <Route path="/register" element={<Register />} />
       <Route path='/thank-you' element={<ThankYou />}/>
       <Route path="/tours/search" element={<SearchResultList />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   )
 }

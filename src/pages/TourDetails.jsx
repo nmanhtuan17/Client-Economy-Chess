@@ -100,7 +100,28 @@ const TourDetails = () => {
 								<img src={photo} alt="" />
 
 								<div className="tour__info">
-									<h2>{title}</h2>
+								<div className="multi-column__item justify-start snap-start" style={{ "--multi-column-item-column-count": "span 6" }}>
+									<div className="v-stack gap-4 text-start">
+										<p className="h3">Chess House Guarantee</p>
+										<div className="prose">
+											<ul style={{ listStyleType: 'none', padding: 0 }}>
+												<li>
+													<strong>Easy parts.</strong> When buying a chess set online, we've got you covered. With us, you have easy access to parts for years so your set is always playable.
+												</li>
+												<li>
+													<strong>Safe, timely arrival.</strong> Every order is thoughtfully packed. Plus, delivery time is clear from checkout until it reaches your door.
+												</li>
+												<li>
+													<strong>Peace of mind.</strong> Easy access to our friendly experts and 90 day, no-hassle returns.
+												</li>
+											</ul>
+											<p><strong>That's why 20,965 people rate Chess House 4.8 out of 5 stars.</strong></p>
+										</div>
+									</div>
+								</div>
+
+
+									{/* <h2>{title}</h2>
 
 									<div className="d-flex align-items-center gap-5">
 										<span className="tour__rating d-flex items-center gap-1">
@@ -132,7 +153,7 @@ const TourDetails = () => {
 										<span>
 											<i className="ri-group-line"></i> {maxGroupSize} people
 										</span>
-									</div>
+									</div> */}
 									<div className="tour__desc">
 										<h5>Description</h5>
 										<p>{desc}</p>
