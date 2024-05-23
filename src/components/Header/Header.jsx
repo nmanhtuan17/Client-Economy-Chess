@@ -108,7 +108,7 @@ const Header = ({onCartIconClick}) => {
               <div className="nav__btns d-flex align-items-center gap-4">
                 {user ? (
                   <>
-                    <h5 className="mb-0 text-yellow-50">{user.data.name}</h5>
+                    <h5 className="mb-0 text-yellow-50">{user?.data?.name}</h5>
                     <Button className="btn btn-dark" onClick={handleLogout}>
                       Logout
                     </Button>
