@@ -28,7 +28,7 @@ const Header = ({onCartIconClick}) => {
   const {state, removeFromCart, updateQuantity, clearCart} = useContext(CartContext);
   const {items} = state;
   const handleLogout = () => {
-    clearCart();
+
     dispatch({type: "LOGOUT"});
     navigate("/");
   };
@@ -131,8 +131,8 @@ const Header = ({onCartIconClick}) => {
                 onClick={onCartIconClick}
               >
                 <i className="ri-shopping-cart-line cart__icon"></i>
-                {items.length > 0 && (
-                  <span className="cart__badge">{items.length}</span>
+                {items?.length > 0 && (
+                  <span className="cart__badge">{items?.length}</span>
                 )}
               </div>
 

@@ -38,7 +38,7 @@ const CartModal = ({ isOpen, onClose }) => {
                 <div className="flex justify-between items-center">
                   <div className="flex items-center">
                     <img
-                      src={item.image || "https://via.placeholder.com/80"}
+                      src={item.photo || "https://via.placeholder.com/80"}
                       alt={item.name}
                       className="w-20 h-20 object-cover rounded"
                     />
