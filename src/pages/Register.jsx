@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, Form, Input, Divider } from 'antd';
 import { MailOutlined, KeyOutlined } from '@ant-design/icons';
 import axios from 'axios';
@@ -7,6 +7,7 @@ import "../styles/login.css";
 import googleIcon from '../assets/images/google-icon.png';
 import facebookIcon from '../assets/images/facebook-icon.png';
 import logoChess from '../assets/images/logochess.jpeg';
+import { AuthContext } from '../context/AuthContext';
 
 
 const Register = () => {
@@ -15,6 +16,7 @@ const Register = () => {
     email: "",
     password: "",
   });
+  const {dispatch} = useContext(AuthContext);
   const navigate = useNavigate()
 
   const onFinish = async (values) => {
@@ -25,6 +27,7 @@ const Register = () => {
       );
 
       if (res.status === 200) {
+        dispatch({type: "REGISTER_SUCCESS", payload: res.data});
         navigate("/home");
       } else {
         const data = await res.data;
