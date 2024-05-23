@@ -29,7 +29,7 @@ const TourCard = ({product}) => {
       <Card>
         <div className="tour__img">
           <img src={photo} alt="tour-img" />
-          {featured && <span>Featured</span> }
+          {featured === 1 ? <span>Featured</span> : null}
         </div>
         <CardBody>
         <div className="card__top d-flex items-center justify-between">

@@ -3,10 +3,8 @@ import './booking.css';
 import { CartContext } from '../context/CartContext';
 import { message } from 'antd';
 
-const BookingPage = (props) => {
+const BookingPage = ({product, avgRating}) => {
 
-  const product = props.product;
-  const avgRating = props.avgRating;
   const [quantity, setQuantity] = useState(1);
   const [board, setBoard] = useState('Green');
   const [bag, setBag] = useState('Green');
@@ -84,7 +82,7 @@ const BookingPage = (props) => {
 				</button>
 			</div>
 			</div>
-        <div className="bulk mb-4 ">
+        {/* <div className="bulk mb-4 ">
           <label htmlFor="bulk-discounts" className="block font-bold mb-2">
             Bulk Discounts:
           </label>
@@ -93,10 +91,10 @@ const BookingPage = (props) => {
             className="w-full  hover:border-gray-500 px-4 py-2 pr-8 rounded  leading-tight focus:outline-none focus:shadow-outline"
           >
             <option value="2">2</option>
-            {/* Add more options if needed */}
+            
           </select>
-        </div>
-		<div>
+        </div> */}
+		{/* <div>
 			<p className='custome'><strong>CUSTOMIZE YOURS</strong></p>
 		</div>
         <div className="board mb-4">
@@ -110,7 +108,7 @@ const BookingPage = (props) => {
             className="w-full  border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded  leading-tight focus:outline-none focus:shadow-outline"
           >
             <option value="Green">Green</option>
-            {/* Add more options if needed */}
+           
           </select>
         </div>
         <div className="bag mb-4">
@@ -125,7 +123,7 @@ const BookingPage = (props) => {
           >
 			
             <option value="Green">Green</option>
-            {/* Add more options if needed */}
+            
           </select>
         </div>
         <div className="mb-4">
@@ -156,7 +154,7 @@ const BookingPage = (props) => {
 				</select>
 				</div>
 			</div>
-			</div>
+			</div> */}
         <button className="AddToCart text-white font-bold py-2 px-4 rounded flex items-center" onClick={handleAddToCart}>
           <span className="mr-2">ADD TO CART</span>
           <span>| {product.price}</span>

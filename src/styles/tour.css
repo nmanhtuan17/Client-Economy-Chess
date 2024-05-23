@@ -1,6 +1,6 @@
 
 
-.pagination span {
+/* .pagination span {
     width: 2rem;
     height: 2rem;
     padding: 5px;
@@ -13,10 +13,21 @@
     color: var(--heading-color);
     cursor: pointer;
     font-weight: 600;
-}
+} */
 
-.active__page {
+/* .active__page {
     background-color: var(--secondary-color);
     color: #fff !important;
+} */
+
+/* Định dạng màu chữ cho các nút */
+
+
+/* Định dạng màu nền cho các nút */
+
+.ant-pagination-item-active a {
+  background-color: #F67E2B; /* Màu nền của các nút */
+  border-radius: 4px;
 }
+
 
