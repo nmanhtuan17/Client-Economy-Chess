@@ -16,8 +16,8 @@ const Register = () => {
     email: "",
     password: "",
   });
-  const {dispatch} = useContext(AuthContext);
   const navigate = useNavigate()
+  const {dispatch} = useContext(AuthContext);
 
   const onFinish = async (values) => {
     try {
@@ -47,7 +47,6 @@ const Register = () => {
     console.log('Failed:', errorInfo);
   };
 
-  
   const handleChange = (e) => {
     const { id, value } = e.target;
     setCredentials((prevCredentials) => ({
@@ -77,26 +76,26 @@ const Register = () => {
             paddingRight: 24
           }}
           initialValues={{
-						remember: true
+            remember: true
           }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
-					<Form.Item
-						rules={[
-							{
-								required: true,
-								message: 'Vui lòng nhập lại name!'
-							}
-						]}
-					>
-						<Input size="large" prefix={<KeyOutlined />}
-							type="text"
-							id="name"
-							placeholder="Name"
-							onChange={handleChange} />
-					</Form.Item>
+          <Form.Item
+            rules={[
+              {
+                required: true,
+                message: 'Vui lòng nhập lại name!'
+              }
+            ]}
+          >
+            <Input size="large" prefix={<KeyOutlined />}
+              type="text"
+              id="name"
+              placeholder="Name"
+              onChange={handleChange} />
+          </Form.Item>
 
           <Form.Item
             rules={[
@@ -106,11 +105,11 @@ const Register = () => {
               }
             ]}
           >
-						<Input size="large" prefix={<MailOutlined />}
-							type="email"
-							placeholder="Email"
-							id="email"
-							onChange={handleChange} />
+            <Input size="large" prefix={<MailOutlined />}
+              type="email"
+              placeholder="Email"
+              id="email"
+              onChange={handleChange} />
           </Form.Item>
 
           <Form.Item
@@ -121,13 +120,12 @@ const Register = () => {
               }
             ]}
           >
-						<Input.Password size="large" prefix={<KeyOutlined />}
-							type="password"
-							placeholder="Password"
-							id="password"
-							onChange={handleChange} />
+            <Input.Password size="large" prefix={<KeyOutlined />}
+              type="password"
+              placeholder="Password"
+              id="password"
+              onChange={handleChange} />
           </Form.Item>
-
 
           <Form.Item>
             <Button type="primary" htmlType="submit" size="large" className="flex-center">
@@ -136,11 +134,10 @@ const Register = () => {
           </Form.Item>
         </Form>
         <Divider plain className="!px-6 !text-[20px] !font-[500px] !text-[#747474]">OR</Divider>
-        
 
         <div className="w-[100%] flex flex-col gap-2 login-social-container px-6">
           
-					<div
+          <div
             style={{backgroundColor: "#fff"}}
             className="px-6 py-4 my-1 text-center btn-login-social rounded-md relative"
           >
@@ -154,7 +151,7 @@ const Register = () => {
             </p>
           </div>
 
-					<div
+          <div
             style={{backgroundColor: "#096bd6"}}
             className="px-6 py-4 my-1 text-center btn-login-social rounded-md relative"
           >
@@ -168,7 +165,6 @@ const Register = () => {
             </p>
           </div>
         </div>
-
 
         <div className="p-6 text-center mt-3 bg-[#d5d5d5] w-[100%]">
           <a className="font-[600]" href="/login">Nếu bạn đã có tài khoản? <span className="text-[#74a52d] cursor-pointer">Đăng nhập</span> </a>

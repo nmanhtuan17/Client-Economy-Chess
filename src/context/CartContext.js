@@ -50,8 +50,8 @@ const cartReducer = (state, action) => {
 const CartProvider = ({children}) => {
   const {user} = useContext(AuthContext);
   const initialCartState = {
-    items: localStorage.getItem(`cart_${user?.data.id}`)
-      ? JSON.parse(localStorage.getItem(`cart_${user?.data.id}`))
+    items: localStorage.getItem(`cart_${user?.data?.id}`)
+      ? JSON.parse(localStorage.getItem(`cart_${user?.data?.id}`))
       : null,
     loading: false,
     error: null,
