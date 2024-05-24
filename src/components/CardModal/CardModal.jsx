@@ -5,7 +5,8 @@ import { CartContext } from '../../context/CartContext';
 const CartModal = ({ isOpen, onClose }) => {
 
   const { state, removeFromCart, updateQuantity } = useContext(CartContext);
-  const { items } = state;
+  // const { items } = state;
+  const items = state?.items || [];
 
   if (!isOpen) return null;
   const handleClose = () => {
@@ -17,7 +18,7 @@ const CartModal = ({ isOpen, onClose }) => {
   };
 
   const calculateSubtotal = () => {
-    return items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    return items?.reduce((acc, item) => acc + item.price * item.quantity, 0);
   };
   return (
     <>
@@ -32,8 +33,8 @@ const CartModal = ({ isOpen, onClose }) => {
           <div className="py-6">
             <p>This order qualifies for FREE shipping in the USA.</p>
             {/* Cart items */}
-            {items.length > 0 ? (
-            items.map((item) => (
+            {items?.length > 0 ? (
+            items?.map((item) => (
               <div key={item.id} className="border-t border-b py-4">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center">

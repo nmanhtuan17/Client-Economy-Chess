@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import './booking.css';
 import { CartContext } from '../context/CartContext';
 import { message } from 'antd';
+import { AuthContext } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const BookingPage = ({product, avgRating}) => {
 
@@ -12,6 +14,8 @@ const BookingPage = ({product, avgRating}) => {
   const [message, setMessage] = useState('');
 
   const { addToCart} = useContext(CartContext);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleQuantityChange = (value) => {
     setQuantity(value);
@@ -29,12 +33,23 @@ const BookingPage = ({product, avgRating}) => {
     setPieces({ ...pieces, [color]: value });
   };
 
+  const checkUserLoggedIn = () => {
+    
+   if (!user || !user.data || !user.data.id) {
+    navigate('/login');
+    return true;
+   }
+  };
+
   const handleAddToCart = () => {
-    addToCart(product);
-    setMessage('Added to cart successfully!');
-    setTimeout(() => {
-      setMessage('');
-    }, 2000); // Ẩn thông báo sau 3 giây
+    if (!checkUserLoggedIn()){
+      addToCart(product);
+      setMessage('Added to cart successfully!');
+      setTimeout(() => {
+        setMessage('');
+      }, 2000); // Ẩn thông báo sau 3 giây
+    }
+    
   };
 
   return (

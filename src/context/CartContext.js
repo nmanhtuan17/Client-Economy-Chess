@@ -1,5 +1,6 @@
 import React, {createContext, useReducer, useEffect, useContext} from "react";
 import {AuthContext} from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const CartContext = createContext();
 
@@ -39,7 +40,7 @@ const cartReducer = (state, action) => {
         ),
       };
     case "SET_CART_ITEMS":
-      return {...state, items: action.payload};
+      return {...state, items: action.payload || []};
     case "CLEAR_CART":
       return {...state, items: []};
     default:
@@ -48,11 +49,13 @@ const cartReducer = (state, action) => {
 };
 
 const CartProvider = ({children}) => {
+  
   const {user} = useContext(AuthContext);
+  
   const initialCartState = {
     items: localStorage.getItem(`cart_${user?.data?.id}`)
       ? JSON.parse(localStorage.getItem(`cart_${user?.data?.id}`))
-      : null,
+      : [],
     loading: false,
     error: null,
   };
@@ -73,7 +76,10 @@ const CartProvider = ({children}) => {
     }
   }, [state.items, user]);
 
-  const addToCart = (item) => dispatch({type: "ADD_TO_CART", payload: item});
+  const addToCart = (item) => {
+  
+    dispatch({type: "ADD_TO_CART", payload: item});
+  } 
   const removeFromCart = (id) =>
     dispatch({type: "REMOVE_FROM_CART", payload: id});
   const updateQuantity = (id, quantity) =>
