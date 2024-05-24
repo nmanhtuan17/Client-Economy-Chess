@@ -21,6 +21,7 @@ const Tours = () => {
 
 	useEffect(() => {
 			fetchUserData();
+			window.scrollTo(0, 160);
 	}, [currentPage, pageSize]); // Sửa lại useEffect để cập nhật khi currentPage hoặc pageSize thay đổi
 
 	const fetchUserData = async () => {
