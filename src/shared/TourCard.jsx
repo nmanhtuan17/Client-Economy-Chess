@@ -6,11 +6,15 @@ import './tour-card.css';
 const TourCard = ({ product }) => {
     const { id, name, photo, price, discount, featured, stock_quantity } = product;
 
+    const formatCurrency = (value) => {
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+      };
+
     // Tính toán giá sau khi giảm
-    const discountedPrice = discount ? Math.round(price - (price * discount / 100)) : price;
+    const discountedPrice = discount ? (price - (price * discount / 100)) : price;
 
     // Tính toán số tiền tiết kiệm được
-    const savings = discount ? Math.round(price - discountedPrice) : null;
+    const savings = discount ? (price - discountedPrice) : null;
 
     return (
         <div className='tour__card'>
@@ -21,7 +25,7 @@ const TourCard = ({ product }) => {
                 </div>
                 <CardBody>
                     <div className="card__top d-flex items-center justify-between">
-                        {savings !== null && <span className="savings-text">Save ${savings.toFixed(2)}</span>}
+                        {savings !== null && <span className="savings-text">Save {formatCurrency(savings)}</span>}
                     </div>
 
                     <h5 className="tour__title">
@@ -32,7 +36,7 @@ const TourCard = ({ product }) => {
                         <div>
                             {discount && discount > 0 ? (
                                 <div className="price-detail">
-                                    <span className="discounted-price">${discountedPrice.toFixed(2)} USD</span>
+                                    <span className="discounted-price">{formatCurrency(discountedPrice)} USD</span>
                                     <span className="original-price">${price.toFixed(2)} USD</span>
                                 </div>
                             ) : (

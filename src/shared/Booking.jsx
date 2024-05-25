@@ -17,14 +17,17 @@ const BookingPage = ({product, avgRating}) => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+  };
   // Kiểm tra nếu product không tồn tại hoặc không có giá trị
   if (!product || !product.price) {
     return null; // Trả về null nếu không có sản phẩm hoặc giá sản phẩm
   }
     // Tính toán giá sau khi giảm
-    const discountedPrice = product.discount ? Math.round(product.price - (product.price * product.discount / 100)) : product.price;
+    const discountedPrice = product.discount ? (product.price - (product.price * product.discount / 100)) : product.price;
     // Tính toán số tiền tiết kiệm được
-    const savings = product.discount ? Math.round(product.price - discountedPrice) : null;
+    const savings = product.discount ? (product.price - discountedPrice) : null;
 
   const handleQuantityChange = (value) => {
     setQuantity(value);
@@ -73,13 +76,13 @@ const BookingPage = ({product, avgRating}) => {
           
           {product.discount && product.discount > 0 ? (
                                   <div className="price-details">
-                                      <span className="discounted-price">${discountedPrice.toFixed(2)}  </span>
-                                      <span className="original-price">${product.price.toFixed(2)}  </span>
+                                      <span className="discounted-price">{formatCurrency(discountedPrice)}  </span>
+                                      <span className="original-price">{formatCurrency(product.price)}  </span>
                                   </div>
                               ) : (
-                                  <h5>${product.price.toFixed(2)}  </h5>
+                                  <h5>{formatCurrency(product.price)}  </h5>
                               )}
-          {savings != null && <span className="savings">Save ${savings.toFixed(2)}</span>} {/* Hiển thị số tiền tiết kiệm */}
+          {savings != null && <span className="savings">Save {formatCurrency(savings)}</span>} {/* Hiển thị số tiền tiết kiệm */}
         </div>
         {/* <div className="text-3xl mb-4">${product.price}</div> */}
         <div className="flex items-center mb-4" style={{color:'#81B64C'}}>
