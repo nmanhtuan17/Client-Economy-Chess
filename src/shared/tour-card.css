@@ -1,6 +1,6 @@
 
 .tour__card {
-
+    
 }
 .tour__img {
     position: relative;
@@ -103,3 +103,38 @@
     transform: scale(1.2);
     box-shadow: 0px 0px 10px 4px rgb(213, 199, 199, 0.6);
 }
+.price-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.discounted-price {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+}
+.savings-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+.card__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
