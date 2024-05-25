@@ -27,6 +27,7 @@ import Newsletter from "../shared/Newsletter";
 import CountUp from "react-countup"; 
 import {useInView} from "react-intersection-observer";
 import {useState} from "react";
+import Chatbot from "../components/Chatbot/Chatbot";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -71,18 +72,7 @@ const Home = () => {
 
       {/* ------------- Services ------------------- */}
 
-      {/* <section>
-        <Container>
-          <Row>
-            <Col lg="3">
-              <h5 className="services__subtitle">What we serve</h5>
-              <h2 className="services__title">We offer our best services</h2>
-            </Col>
-            <ServiceList />
-          </Row>
-        </Container>
-      </section> */}
-
+      
       {/*------------------- Feature tour section start----------------- */}
       <section>
         <Container>
@@ -100,50 +90,7 @@ const Home = () => {
 
       {/* ++++++++++++++++++++++++++++++++= Experience =============================== */}
 
-      {/* <section>
-        <Container>
-          <Row>
-            <Col lg="6">
-              <div className="experience__content">
-                <Subtitle subtitle={"Experience"} />
-
-                <h2>
-                  With our all experience <br /> we will serve you
-                </h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Veniam, numquam!
-                  <br />
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </p>
-              </div>
-
-              <div className="counter__wrapper d-flex items-center gap-5">
-                <div className="counter__box">
-                  <span>12k+</span>
-                  <h6>Successfull Trip</h6>
-                </div>
-
-                <div className="counter__box">
-                  <span>2k+</span>
-                  <h6>Regular clients</h6>
-                </div>
-
-                <div className="counter__box">
-                  <span>15</span>
-                  <h6>Years experience</h6>
-                </div>
-              </div>
-            </Col>
-
-            <Col lg={6}>
-              <div className="experience__img">
-                <img src={experienceImg} alt="" />
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section> */}
+      
 
       {/* =============================  Gallery section ================== */}
       <section>
@@ -412,6 +359,10 @@ const Home = () => {
 
       {/* ================================ Newletters ======================== */}
       <Newsletter />
+
+
+      {/*============================ Chat box =========================== */}
+      <Chatbot />
     </>
   );
 };
