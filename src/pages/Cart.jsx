@@ -4,6 +4,7 @@ import { CartContext } from '../context/CartContext';
 const Cart = () => {
   const { state, removeFromCart, updateQuantity } = useContext(CartContext);
   const { items } = state;
+  console.log(state);
 
   const formatCurrency = (value) => {
     return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
