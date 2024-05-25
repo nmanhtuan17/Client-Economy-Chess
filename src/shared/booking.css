@@ -35,3 +35,31 @@
     border-bottom: 1px solid rgb(216, 215, 215);
     padding-bottom: 20px;
 }
+.savings {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.5em;
+    font-weight: 500;
+}
+.price-details {
+    display: flex;
+    flex-direction: row;
+    
+}
+.original-price {
+    color: rgb(121, 121, 121);
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    text-decoration: line-through rgb(55, 55, 55);
+}
+
+.discounted-price {
+    font-size: 1.2em;
+    color: red;
+    margin-right: 20px;
+}
