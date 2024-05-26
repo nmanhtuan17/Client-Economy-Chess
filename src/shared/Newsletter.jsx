@@ -27,7 +27,7 @@ const Newsletter = () => {
 
         <Col lg={6}>
           <div className="newsletter__img">
-            <img src={maleTourist} alt="" />
+            <img src="https://static.vecteezy.com/system/resources/previews/010/872/965/original/3d-man-holds-a-subscribe-button-png.png" alt="" />
           </div>
         </Col>  
   

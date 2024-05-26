@@ -5,7 +5,9 @@
     margin-top: 3rem;
 }
 .newsletter__img img {
-    width: 100%;
+    margin-left: 60px;
+    width: 400px;
+    height: 400px;
 }
 
 .newsletter__content {
