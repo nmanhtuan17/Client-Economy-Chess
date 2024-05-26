@@ -28,7 +28,7 @@ const Header = ({onCartIconClick}) => {
   const {state, removeFromCart, updateQuantity, clearCart} = useContext(CartContext);
   const {items} = state;
   const handleLogout = () => {
-
+    clearCart();
     dispatch({type: "LOGOUT"});
     navigate("/");
   };
