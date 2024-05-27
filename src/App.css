@@ -12,6 +12,12 @@
   --text-color: #6e7074;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
+  
+  --primaryGradient: linear-gradient(93.12deg, #89b45e 0.52%, #92c75d 100%);
+  --secondaryGradient: linear-gradient(268.91deg, #81B64C -2.14%, #81B64C 99.69%);
+  --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
+  --primary: #81B64C;
 }
 
 * {
