@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './tour-card.css';
+import './product-card.css';
 
-const TourCard = ({ product }) => {
+const ProductCard = ({ product }) => {
     const { id, name, photo, price, discount, featured, stock_quantity } = product;
 
     const formatCurrency = (value) => {
@@ -54,4 +54,4 @@ const TourCard = ({ product }) => {
     );
 };
 
-export default TourCard;
+export default ProductCard;

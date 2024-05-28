@@ -4,12 +4,8 @@ import "../styles/home.css";
 import "../shared/common-section.css";
 import {useNavigate} from "react-router-dom";
 import {Container, Row, Col} from "reactstrap";
-import heroImg from "../assets/images/hero-img01.jpg";
-import heroImg02 from "../assets/images/hero-img02.jpg";
-import heroVideo from "../assets/images/hero-video.mp4";
-import worldImg from "../assets/images/world.png";
 import Subtitle from "../shared/Subtitle";
-import experienceImg from "../assets/images/experience.png";
+
 
 import foryou1 from "../assets/images/foryou1.jpeg";
 import foryou2 from "../assets/images/foryou2.jpeg";
@@ -20,7 +16,7 @@ import foryou6 from "../assets/images/foryou6.jpeg";
 
 // import ServiceList from "../Services/ServiceList";
 import SearchBar from "../shared/SearchBar";
-import FeaturedTourList from "../components/Featured-tours/FeaturedTourList";
+import FeaturedProductList from "../components/Featured-Products/FeaturedProductList";
 import Testimonials from "../components/Testimonial/Testimonials";
 import Newsletter from "../shared/Newsletter";
 // import CountUp from "../components/CountUp/CountUp";
@@ -42,7 +38,7 @@ const Home = () => {
 
   return (
     <>
-      {/* -----------------Hero section------------- */}
+      {/* -----------------Shopify section------------- */}
       <section className="common__section">
         <Container>
           <Row >
@@ -70,10 +66,8 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* ------------- Services ------------------- */}
-
       
-      {/*------------------- Feature tour section start----------------- */}
+      {/*------------------- Top Chess Set section start----------------- */}
       <section>
         <Container>
           <Row>
@@ -83,12 +77,10 @@ const Home = () => {
               <h2 className="featured__tour-title"><strong>TOP CHESS SETS</strong></h2>
             </Col>
 
-            <FeaturedTourList />
+            <FeaturedProductList />
           </Row>
         </Container>
       </section>
-
-      {/* ++++++++++++++++++++++++++++++++= Experience =============================== */}
 
       
 
@@ -296,7 +288,7 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* ==================== Phần mới ======================= */}
+      {/* ==================== Rating ======================= */}
       <section
         className="section section-blends section-full"
         ref={ref}

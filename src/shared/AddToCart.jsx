@@ -1,15 +1,13 @@
 import React, { useContext, useState } from 'react';
-import './booking.css';
+import './add-to-cart.css'
 import { CartContext } from '../context/CartContext';
 import { message } from 'antd';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-const BookingPage = ({product, avgRating}) => {
+const AddToCart = ({product, avgRating}) => {
 
   const [quantity, setQuantity] = useState(1);
-  const [board, setBoard] = useState('Green');
-  const [bag, setBag] = useState('Green');
   const [pieces, setPieces] = useState({ black: true, white: true });
   const [message, setMessage] = useState('');
 
@@ -31,14 +29,6 @@ const BookingPage = ({product, avgRating}) => {
 
   const handleQuantityChange = (value) => {
     setQuantity(value);
-  };
-
-  const handleBoardChange = (value) => {
-    setBoard(value);
-  };
-
-  const handleBagChange = (value) => {
-    setBag(value);
   };
 
   const handlePiecesChange = (color, value) => {
@@ -122,8 +112,16 @@ const BookingPage = ({product, avgRating}) => {
 			</div>
 			</div>
         <button className="AddToCart text-white font-bold py-2 px-4 rounded flex items-center" onClick={handleAddToCart}>
-          <span className="mr-2">ADD TO CART</span>
-          <span>| ${product.price.toFixed(2)}</span>
+          <span className="mr-2">ADD TO CART | </span>
+          <div className="text-lg">
+          {product.discount && product.discount > 0 ? (
+            <div className="price-details">
+              <span className="text-white">{formatCurrency(discountedPrice)}  </span>
+            </div>
+              ) : (
+                    <h5 className='mt-2'>{formatCurrency(product.price)}  </h5>
+                  )}
+          </div>
         </button>
         {message && <div className="text-green-500 mt-4"> {message} </div>}
       </div>
@@ -131,4 +129,4 @@ const BookingPage = ({product, avgRating}) => {
   );
 };
 
-export default BookingPage;
+export default AddToCart;
