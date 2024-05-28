@@ -32,9 +32,9 @@ const Chatbot = () => {
 
     try {
       const response = await axios.post('http://127.0.0.1:5000/predict', { message: text1 }, { headers: { 'Content-Type': 'application/json' } });
-      const msg2 = { name: "T3GTeam", message: response.data.answer };
+      const msg2 = { name: "T3GTeam", message: response.data.response };
       // setMessages(prevMessages => [...prevMessages, msg2]);
-      dispatch({ type: 'ADD_MESSAGE', payload: msg1 });
+      dispatch({ type: 'ADD_MESSAGE', payload: msg2 });
       textField.value = '';
     } catch (error) {
       console.error('Error:', error);

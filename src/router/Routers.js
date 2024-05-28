@@ -4,8 +4,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 
 import Home from './../pages/Home';
-import Tours from './../pages/Tours';
-import TourDetails from './../pages/TourDetails';
+import Products from '../pages/Products';
+import ProductDetails from '../pages/ProductDetails';
 import SearchResultList from './../pages/SearchResultList';
 import Login from './../pages/Login';
 import Register from './../pages/Register';
@@ -20,8 +20,8 @@ const Routers = () => {
       <Route path="/" element={<Navigate to='/home' />} />
       <Route path="/home" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/products" element={<Tours />} />
-      <Route path="/products/:id" element={<TourDetails />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/products/:id" element={<ProductDetails />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path='/thank-you' element={<ThankYou />}/>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CommonSection from '../shared/CommonSection'
 import { Container, Row, Col } from 'reactstrap'
 import { useLocation } from 'react-router-dom'
-import TourCard from '../shared/TourCard'
+import ProductCard from '../shared/ProductCard'
 import Newsletter from '../shared/Newsletter'
 
 
@@ -24,7 +24,7 @@ const SearchResultList = () => {
               ( 
                 data?.map( product => (
                   <Col lg={3} className='mb-4' key={product.id}>
-                    <TourCard product={product}/>
+                    <ProductCard product={product}/>
                   </Col>
                 ))
               )

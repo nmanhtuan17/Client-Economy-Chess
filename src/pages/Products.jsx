@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import CommonSection from "../shared/CommonSection";
-import "../styles/tour.css";
+import "../styles/products.css";
 import SearchBar from "../shared/SearchBar";
 import Newsletter from "../shared/Newsletter";
 import { Container, Row, Col } from "reactstrap";
 import { Pagination } from "antd";
-
-import TourCard from "../shared/TourCard";
+import ProductCard from "../shared/ProductCard";
 import useAxios from "../hooks/useAxios";
 import axios from "axios";
-const Tours = () => {
+const Products = () => {
 	const [products, setProducts] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [total, setTotal] = useState(0);
@@ -71,7 +70,7 @@ const Tours = () => {
 											<Row>
 													{products?.map((product) => (
 															<Col lg={3} className="mb-4" key={product.id}>
-																	<TourCard product={product} />
+																	<ProductCard product={product} />
 															</Col>
 													))}
 											</Row>
@@ -91,6 +90,6 @@ const Tours = () => {
 	);
 };
 
-export default Tours;
+export default Products;
 
 

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import TourCard from "../../shared/TourCard";
+import ProductCard from "../../shared/ProductCard";
 import { Col } from "reactstrap";
 import useAxios from "../../hooks/useAxios";
 
-const FeaturedTourList = () => {
+const FeaturedProductList = () => {
 	const apiUrl = "http://127.0.0.1:5000/products";
 
 	const { data: featuredProducts, loading, error } = useAxios(apiUrl);
@@ -17,11 +17,11 @@ const FeaturedTourList = () => {
 				!error &&
 				featured?.map((product, index) => (
 					<Col lg="3" className="mb-4" key={product.id}>
-						<TourCard product={product} />
+						<ProductCard product={product} />
 					</Col>
 				))}
 		</>
 	);
 };
 
-export default FeaturedTourList;
+export default FeaturedProductList;

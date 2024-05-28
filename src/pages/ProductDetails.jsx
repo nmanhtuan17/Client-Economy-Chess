@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
-import "../styles/tour-details.css";
+import "../styles/product-details.css";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col, Form, ListGroup } from "reactstrap";
 import Newsletter from "../shared/Newsletter";
 import avatar from "../assets/images/avatar.jpg";
-import Booking from "../shared/Booking";
+import AddToCart from "../shared/AddToCart";
 import useAxios from "../hooks/useAxios";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 
-const TourDetails = () => {
+const ProductDetails = () => {
 	// lấy giá trị id từ URL;
 	const { id } = useParams();
 
@@ -231,7 +231,7 @@ const TourDetails = () => {
 						</Col>
 
 						<Col lg={4}>
-							<Booking product={product} avgRating={avgRating} />
+							<AddToCart product={product} avgRating={avgRating} />
 						</Col>
 					</Row>
 				</Container>
@@ -241,4 +241,4 @@ const TourDetails = () => {
 	);
 };
 
-export default TourDetails;
+export default ProductDetails;
