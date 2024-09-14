@@ -10,7 +10,7 @@ const SearchBar = ({ lg }) => {
   const [name, setName] = useState('');
 
   const searchHandler = async (e) => {
-    e.preventDefault();  // Prevent the default form submission behavior
+    e.preventDefault();
     const apiUrlSearch = `http://127.0.0.1:5000/products/search`;
 
     try {

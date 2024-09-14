@@ -6,48 +6,16 @@ import Newsletter from "../shared/Newsletter";
 import { Container, Row, Col } from "reactstrap";
 import { Pagination } from "antd";
 import ProductCard from "../shared/ProductCard";
-import useAxios from "../hooks/useAxios";
-import axios from "axios";
+
 const Products = () => {
 	const [products, setProducts] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [total, setTotal] = useState(0);
-	const [pageSize, setPageSize] = useState(8); // Thiết lập kích thước trang mặc định
+	const [pageSize, setPageSize] = useState(8); 
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 
 	console.log(products);
-
-	useEffect(() => {
-			fetchUserData();
-			window.scrollTo(0, 160);
-	}, [currentPage, pageSize]); // Sửa lại useEffect để cập nhật khi currentPage hoặc pageSize thay đổi
-
-	const fetchUserData = async () => {
-			try {
-					const response = await axios.get(
-							`http://127.0.0.1:5000/sale?page=${currentPage}&limit=${pageSize}`
-					);
-					console.log(response.data);
-
-					const data = response.data.products.map((item) => {
-							return {
-									key: item.id,
-									...item,
-							};
-					});
-
-					setProducts(data);
-					console.log(data);
-					setTotal(response.data.total_products);
-					// Không cần thiết lập pageSize vì nó đã được thiết lập từ trước
-			} catch (error) {
-					console.error("Error fetching user data:", error);
-					setError(error);
-			} finally {
-					// setLoading(false);
-			}
-	};
 
 	const onChange = (pageNumber) => {
 			setCurrentPage(pageNumber);

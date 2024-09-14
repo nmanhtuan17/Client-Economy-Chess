@@ -7,7 +7,7 @@ const useAxios = (url) => {
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
-        console.log('useAxios effect is called');
+		console.log('useAxios effect is called');
 		const fetchData = async () => {
 			try {
 				setLoading(true);

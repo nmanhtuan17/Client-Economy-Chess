@@ -16,7 +16,7 @@ import {ChatHistoryProvider} from "./context/ChatHistoryContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AuthContextProvider>
+    {/* <AuthContextProvider> */}
       <CartProvider>
         <ChatHistoryProvider>
           <BrowserRouter>
@@ -24,6 +24,6 @@ root.render(
           </BrowserRouter>
         </ChatHistoryProvider>
       </CartProvider>
-    </AuthContextProvider>
+    {/* </AuthContextProvider> */}
   </React.StrictMode>
 );

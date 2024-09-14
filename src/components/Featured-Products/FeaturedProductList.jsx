@@ -4,14 +4,15 @@ import { Col } from "reactstrap";
 import useAxios from "../../hooks/useAxios";
 
 const FeaturedProductList = () => {
-	const apiUrl = "http://127.0.0.1:5000/products";
+	// const apiUrl = "http://127.0.0.1:5000/products";
 
-	const { data: featuredProducts, loading, error } = useAxios(apiUrl);
-	const featured = featuredProducts.filter((product) => product.featured === 1);
-	console.log(featuredProducts);
+	// const { data: featuredProducts, loading, error } = useAxios(apiUrl);
+	// const featured = featuredProducts.filter((product) => product.featured === 1);
+	// console.log(featuredProducts);
+
 	return (
 		<>
-			{loading && <h4>Loading............</h4>}
+			{/* {loading && <h4>Loading............</h4>}
 			{error && <h4>{error}</h4>}
 			{!loading &&
 				!error &&
@@ -19,7 +20,7 @@ const FeaturedProductList = () => {
 					<Col lg="3" className="mb-4" key={product.id}>
 						<ProductCard product={product} />
 					</Col>
-				))}
+				))} */}
 		</>
 	);
 };
