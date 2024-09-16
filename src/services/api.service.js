@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL_API = 'http://127.0.0.1:8000'
+const API_URL = 'http://127.0.0.1:8000/api'
 
 class ApiService {
   axiosInstance = axios.create({
@@ -25,14 +25,12 @@ class ApiService {
 
   async callApi(method, endpoint, data = {}, config) {
     try {
-      const tokens = store.getState().auth.tokens;
       const r = await this.axiosInstance({
         method,
         url: endpoint,
         ...config,
         data: method.toLowerCase() === "get" ? undefined : data,
         headers: {
-          Authorization: tokens?.accessToken ? `Bearer ${tokens.accessToken}` : undefined,
           ...(config?.headers || {})
         },
       });

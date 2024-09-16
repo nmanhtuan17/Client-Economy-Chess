@@ -19,29 +19,29 @@ const Register = () => {
   const navigate = useNavigate()
   const {dispatch} = useContext(AuthContext);
 
-  const onFinish = async (values) => {
-    try {
-      const res = await axios.post(
-        "http://127.0.0.1:5000/register",
-        credentials
-      );
+  // const onFinish = async (values) => {
+  //   try {
+  //     const res = await axios.post(
+  //       "http://127.0.0.1:8000/register",
+  //       credentials
+  //     );
 
-      if (res.status === 200) {
-        dispatch({type: "REGISTER_SUCCESS", payload: res.data});
-        navigate("/home");
-      } else {
-        const data = await res.data;
-        if (data && data.message) {
-          alert(data.message);
-        } else {
-          alert("Lỗi");
-        }
-      }
-    } catch (err) {
-      alert("Email đã tồn tại");
-      console.error(err);
-    }
-  };
+  //     if (res.status === 200) {
+  //       dispatch({type: "REGISTER_SUCCESS", payload: res.data});
+  //       navigate("/home");
+  //     } else {
+  //       const data = await res.data;
+  //       if (data && data.message) {
+  //         alert(data.message);
+  //       } else {
+  //         alert("Lỗi");
+  //       }
+  //     }
+  //   } catch (err) {
+  //     alert("Email đã tồn tại");
+  //     console.error(err);
+  //   }
+  // };
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
@@ -78,7 +78,7 @@ const Register = () => {
           initialValues={{
             remember: true
           }}
-          onFinish={onFinish}
+          // onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >

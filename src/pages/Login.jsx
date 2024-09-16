@@ -2,22 +2,22 @@ import React, {useState, useContext} from "react";
 import {Button, Form, Input, Divider, Checkbox} from "antd";
 import {MailOutlined, KeyOutlined} from "@ant-design/icons";
 import "../styles/login.css";
-
-import {AuthContext} from "../context/AuthContext";
 import {useNavigate} from "react-router-dom";
-import axios from "axios";
 import googleIcon from "../assets/images/google-icon.png";
 import facebookIcon from "../assets/images/facebook-icon.png";
 import logo from "../assets/images/logochess.jpeg";
+import { useAppDispatch } from "../redux/store";
+import { login } from "../redux/actions/app.action";
+
 
 
 const Login = () => {
+  const dispatch = useAppDispatch();
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
   const navigate = useNavigate();
-  const {dispatch} = useContext(AuthContext);
 
   const handleChange = (e) => {
     const {id, value} = e.target;
@@ -28,26 +28,7 @@ const Login = () => {
   };
 
   const handleClick = async (e) => {
-    // e.preventDefault();
-
-    try {
-      const res = await axios.post(
-        "http://127.0.0.1:5000/login",
-        credentials
-      );
-
-      if (res.status === 200) {
-        dispatch({type: "LOGIN_SUCCESS", payload: res.data});
-        navigate("/home");
-      } else {
-        const data = await res.data;
-        alert(data.message);
-      }
-    } catch (error) {
-      dispatch({type: "LOGIN_FAITULE", payload: error.data});
-      console.error(error);
-      alert("Tai khoan hoac mat khau khong dung");
-    }
+    dispatch(login(credentials))
   };
 
   return (
